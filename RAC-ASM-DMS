@@ -1,0 +1,28 @@
+SQL> create user oshop identified by <PASSWORD> default tablespace users temporary tablespace temp quota unlimited on users;
+
+User created.
+
+SQL> !stty erase ^H 
+
+SQL> grant connect,resource to oshop;
+
+Grant succeeded.
+
+
+[root@rac1 ~]# sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-43681722.efs.ap-northeast-2.amazonaws.com:/ /oracle_shares/
+[root@rac2 ~]# sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-43681722.efs.ap-northeast-2.amazonaws.com:/ /oracle_shares/
+[root@rac1 ~]# chown oracle:oinstall /oracle_shares/
+[root@rac2 ~]# chown oracle:oinstall /oracle_shares/
+
+[root@rac1 ~]# ls -ld /oracle_shares/
+drwxr-xr-x 2 oracle oinstall 6144 Nov 17 23:46 /oracle_shares/
+
+[root@rac2 ~]# ls  -ld /oracle_shares/
+drwxr-xr-x 2 oracle oinstall 6144 Nov 17 23:46 /oracle_shares/
+
+
+SQL> conn dms_user/<PASSWORD>
+Connected.
+SQL> create directory bfile_dir as '/oracle_shares';
+
+
