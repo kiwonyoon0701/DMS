@@ -75,6 +75,7 @@ Welcome to the DMS wiki!
 **Role** : `prod.dms.s3.access.role`
 **Attach Policy** : `prod.dms.s3.access.policy`
 Select "DMS" as use case
+
 ![GitHub Logo](images/2.png)
 
 
