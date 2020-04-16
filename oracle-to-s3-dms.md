@@ -3,7 +3,8 @@ Welcome to the DMS wiki!
 
 ### Create S3 bucket
 **Bucket Name** : `dms01-kiwony`
-
+![GitHub Logo](images/1.png)
+Format: ![Alt Text](url)
 
 ### Create IAM Policy & Role
 **Policy** : `DMS-S3-endpoint-access`
