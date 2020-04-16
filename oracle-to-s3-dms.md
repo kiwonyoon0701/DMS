@@ -1,16 +1,39 @@
 Welcome to the DMS wiki!
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
-
 
 ### Create S3 bucket
 **Bucket Name** : `oracle-to-s3-dms-kiwony`
 ![GitHub Logo](images/1.png)
-Format: ![Create Bucket](images/aws.png)
 
 ### Create IAM Policy & Role
-**Policy** : `DMS-S3-endpoint-access`
+**Policy** : `prod.dms.s3.access.policy`
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::oracle-to-s3-dms-kiwony*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::oracle-to-s3-dms-kiwony*"
+            ]
+        }
+    ]
+}
+```
 
 ```
 {
@@ -49,9 +72,11 @@ Format: ![Create Bucket](images/aws.png)
 
 
 ### Create Role
-**Role** : `dmstestrole`
-
-**Attach Policy** : `DMS-S3-endpoint-access`
+**Role** : `prod.dms.s3.access.role`
+**Attach Policy** : `prod.dms.s3.access.policy`
+![GitHub Logo](images/2.png)
+![GitHub Logo](images/3.png)
+![GitHub Logo](images/4.png)
 
 
 ### Create DB Instance 
