@@ -75,17 +75,17 @@ Welcome to the DMS wiki!
 **Role** : `prod.dms.s3.access.role`
 **Attach Policy** : `prod.dms.s3.access.policy`
 
-Select "DMS" as use case
+**Select "DMS" as use case**
 
 ![GitHub Logo](images/2.png)
 
 
-Attach the created policy
+**Attach the created policy**
 
 ![GitHub Logo](images/3.png)
 
 
-Create Role
+**Create Role**
 
 ![GitHub Logo](images/4.png)
 
