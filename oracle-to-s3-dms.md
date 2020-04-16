@@ -4,7 +4,7 @@ Welcome to the DMS wiki!
 ### Create S3 bucket
 **Bucket Name** : `oracle-to-s3-dms-kiwony`
 ![GitHub Logo](images/1.png)
-Format: ![Alt Text](url)
+Format: ![Create Bucket](https://www.amazon.com/ref=nav_logo)
 
 ### Create IAM Policy & Role
 **Policy** : `DMS-S3-endpoint-access`
