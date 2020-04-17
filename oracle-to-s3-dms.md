@@ -103,6 +103,18 @@ Welcome to the DMS wiki!
 
 ![GitHub Logo](images/8.png)
 
+![GitHub Logo](images/9.png)
+
+![GitHub Logo](images/10.png)
+
+![GitHub Logo](images/11.png)
+
+![GitHub Logo](images/12.png)
+
+![GitHub Logo](images/13.png)
+
+![GitHub Logo](images/14.png)
+
 ### DMS Pre-requirement for Oracle
 ```
 create user dms_user identified by Octank#1234 default tablespace users temporary tablespace temp quota unlimited on users;
