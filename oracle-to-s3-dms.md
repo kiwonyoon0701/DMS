@@ -95,6 +95,13 @@ Welcome to the DMS wiki!
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
 
 
+![GitHub Logo](images/5.png)
+
+![GitHub Logo](images/6.png)
+
+![GitHub Logo](images/7.png)
+
+![GitHub Logo](images/8.png)
 
 ### DMS Pre-requirement for Oracle
 ```
