@@ -1,11 +1,12 @@
 Welcome to the DMS wiki!
 
-
 ### Create S3 bucket
+
 **Bucket Name** : `oracle-to-s3-dms-kiwony`
 ![GitHub Logo](images/1.png)
 
 ### Create IAM Policy & Role
+
 **Policy** : `prod.dms.s3.access.policy`
 
 ```
@@ -70,8 +71,8 @@ Welcome to the DMS wiki!
 }
 ```
 
-
 ### Create Role
+
 **Role** : `prod.dms.s3.access.role`
 **Attach Policy** : `prod.dms.s3.access.policy`
 
@@ -79,21 +80,17 @@ Welcome to the DMS wiki!
 
 ![GitHub Logo](images/2.png)
 
-
 **Attach the created policy**
 
 ![GitHub Logo](images/3.png)
-
 
 **Create Role**
 
 ![GitHub Logo](images/4.png)
 
+### Create DB Instance
 
-
-### Create DB Instance 
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
-
 
 ![GitHub Logo](images/5.png)
 
@@ -116,7 +113,10 @@ Welcome to the DMS wiki!
 ![GitHub Logo](images/14.png)
 
 ### DMS Pre-requirement for Oracle
+
 ```
+oracle@oracle11g:/home/oracle> sqlplus / as sysdba
+
 create user dms_user identified by Octank#1234 default tablespace users temporary tablespace temp quota unlimited on users;
 grant connect, resource to dms_user;
 grant EXECUTE ON dbms_logmnr to dms_user;
@@ -133,7 +133,7 @@ GRANT SELECT on V_$TIMEZONE_NAMES to dms_user;
 GRANT SELECT on V_$TRANSACTION to dms_user;
 GRANT SELECT on ALL_INDEXES to dms_user;
 GRANT SELECT on ALL_OBJECTS to dms_user;
-GRANT SELECT on DBA_OBJECTS to dms_user; 
+GRANT SELECT on DBA_OBJECTS to dms_user;
 GRANT SELECT on ALL_TABLES to dms_user;
 GRANT SELECT on ALL_USERS to dms_user;
 GRANT SELECT on ALL_CATALOG to dms_user;
@@ -163,37 +163,44 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
 ```
 
+### DMS
 
-### Create Replication Instance 
+## Replication Instance
+
+# Create Replication Instance
+
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
-
 
 ### Create Endpoint and Test
+
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
-
-
-
 
 ### Create Task
-**AMI-ID** : `ami-0e63e3e96d7d9e456`
 
-
-
-### Subject
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
 
 ### Subject
+
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
 
 ### Subject
+
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
 
 ### Subject
+
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
 
 ### Subject
+
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
 
+### Subject
 
+**AMI-ID** : `ami-0e63e3e96d7d9e456`
 
+dms-vpc-role
+AmazonDMSVPCManagementRole
 
+dms-cloudwatch-logs-role
+AmazonDMSCloudWatchLogsRole
