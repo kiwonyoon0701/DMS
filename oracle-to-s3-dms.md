@@ -54,7 +54,7 @@ Welcome to the DMS wiki!
 
 <kbd> ![GitHub Logo](images/4.png) </kbd>
 
-### Create DB Instance
+# Create DB Instance
 
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
 
