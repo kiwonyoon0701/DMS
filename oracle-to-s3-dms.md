@@ -169,7 +169,35 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
 # Create Replication Instance
 
-**AMI-ID** : `ami-0e63e3e96d7d9e456`
+![GitHub Logo](images/15.png)
+
+![GitHub Logo](images/16.png)
+
+![GitHub Logo](images/17.png)
+
+![GitHub Logo](images/18.png)
+
+![GitHub Logo](images/19.png)
+
+![GitHub Logo](images/20.png)
+
+![GitHub Logo](images/21.png)
+
+![GitHub Logo](images/22.png)
+
+![GitHub Logo](images/23.png)
+
+![GitHub Logo](images/24.png)
+
+![GitHub Logo](images/25.png)
+
+![GitHub Logo](images/26.png)
+
+
+![GitHub Logo](images/27.png)
+
+![GitHub Logo](images/28.png)
+
 
 ### Create Endpoint and Test
 
