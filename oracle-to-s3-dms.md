@@ -1,12 +1,12 @@
 Welcome to the DMS wiki!
 
-### Create S3 bucket
+# Create S3 bucket
 
 **Bucket Name** : `oracle-to-s3-dms-kiwony`
 
 <kbd> ![GitHub Logo](images/1.png) </kbd>
 
-### Create IAM Policy & Role
+# Create IAM Policy & Role
 
 **Policy** : `prod.dms.s3.access.policy`
 
@@ -78,7 +78,7 @@ Welcome to the DMS wiki!
 
 <kbd> ![GitHub Logo](images/14.png) </kbd>
 
-### DMS Pre-requirement for Oracle
+# DMS Pre-requirement for Oracle
 
 ## Execute following commands on session manager console 
 
