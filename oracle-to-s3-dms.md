@@ -3,7 +3,10 @@ Welcome to the DMS wiki!
 ### Create S3 bucket
 
 **Bucket Name** : `oracle-to-s3-dms-kiwony`
+
+<kbd>
 ![GitHub Logo](images/1.png)
+</kbd>
 
 ### Create IAM Policy & Role
 
