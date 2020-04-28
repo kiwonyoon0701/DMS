@@ -36,41 +36,6 @@ Welcome to the DMS wiki!
 }
 ```
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetAccessPoint",
-                "s3:PutAccountPublicAccessBlock",
-                "s3:GetAccountPublicAccessBlock",
-                "s3:ListAllMyBuckets",
-                "s3:ListAccessPoints",
-                "s3:ListJobs",
-                "s3:CreateJob",
-                "s3:HeadBucket"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Sid": "VisualEditor1",
-            "Effect": "Allow",
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::dms01-kiwony*"
-        },
-        {
-            "Sid": "VisualEditor2",
-            "Effect": "Allow",
-            "Action": "s3:ListBucket",
-            "Resource": "arn:aws:s3:::dms01-kiwony*"
-        }
-    ]
-}
-```
-
 ### Create Role
 
 **Role** : `prod.dms.s3.access.role`
@@ -78,7 +43,9 @@ Welcome to the DMS wiki!
 
 **Select "DMS" as use case**
 
+<kbd>
 ![GitHub Logo](images/2.png)
+</kbd>
 
 **Attach the created policy**
 
