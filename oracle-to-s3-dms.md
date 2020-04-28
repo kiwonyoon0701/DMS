@@ -44,9 +44,7 @@ Welcome to the DMS wiki!
 
 **Select "DMS" as use case**
 
-<kbd>
-![GitHub Logo](images/2.png)
-</kbd>
+<kbd> ![GitHub Logo](images/2.png) </kbd>
 
 **Attach the created policy**
 
