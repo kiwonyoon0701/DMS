@@ -80,7 +80,7 @@ Welcome to the DMS wiki!
 
 # DMS Pre-requirement for Oracle
 
-## Execute following commands on session manager console 
+### Execute following commands on session manager console 
 
 ```
 oracle@oracle11g:/home/oracle> sqlplus / as sysdba
@@ -131,13 +131,13 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
 ```
 
-### DMS
+# Database Migration Service
 
-## Replication Instance
-
-# Create Replication Instance
+## Create Replication Instance
 
 <kbd> ![GitHub Logo](images/15.png) </kbd>
+
+## Create Source Endpoint(Oracle)
 
 <kbd> ![GitHub Logo](images/16.png) </kbd>
 
@@ -149,15 +149,24 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
 <kbd> ![GitHub Logo](images/20.png) </kbd>
 
+## Create Target Endpoint(S3)
+
 <kbd> ![GitHub Logo](images/21.png) </kbd>
 
 <kbd> ![GitHub Logo](images/22.png) </kbd>
+
+## Create Migration Task
 
 <kbd> ![GitHub Logo](images/23.png) </kbd>
 
 <kbd> ![GitHub Logo](images/24.png) </kbd>
 
+## Check Table Statistics
+
 <kbd> ![GitHub Logo](images/25.png) </kbd>
+
+## Check S3 Bucket
+**4 Folders created** 
 
 <kbd> ![GitHub Logo](images/26.png) </kbd>
 
