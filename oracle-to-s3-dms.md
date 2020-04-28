@@ -170,12 +170,16 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
 <kbd> ![GitHub Logo](images/26.png) </kbd>
 
+## Check Initial Loading Data in S3 bucket
+**4 Folders created** 
 
 <kbd> ![GitHub Logo](images/27.png) </kbd>
 
 <kbd> ![GitHub Logo](images/28.png) </kbd>
 
 <kbd> ![GitHub Logo](images/29.png) </kbd>
+
+## Connect to System Manager Console to raise new insert operation
 
 <kbd> ![GitHub Logo](images/30.png) </kbd>
 
