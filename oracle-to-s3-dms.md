@@ -48,35 +48,35 @@ Welcome to the DMS wiki!
 
 **Attach the created policy**
 
-![GitHub Logo](images/3.png)
+<kbd> ![GitHub Logo](images/3.png) </kbd>
 
 **Create Role**
 
-![GitHub Logo](images/4.png)
+<kbd> ![GitHub Logo](images/4.png) </kbd>
 
 ### Create DB Instance
 
 **AMI-ID** : `ami-0e63e3e96d7d9e456`
 
-![GitHub Logo](images/5.png)
+<kbd> ![GitHub Logo](images/5.png) </kbd>
 
-![GitHub Logo](images/6.png)
+<kbd> ![GitHub Logo](images/6.png) </kbd>
 
-![GitHub Logo](images/7.png)
+<kbd> ![GitHub Logo](images/7.png) </kbd>
 
-![GitHub Logo](images/8.png)
+<kbd> ![GitHub Logo](images/8.png) </kbd>
 
-![GitHub Logo](images/9.png)
+<kbd> ![GitHub Logo](images/9.png) </kbd>
 
-![GitHub Logo](images/10.png)
+<kbd> ![GitHub Logo](images/10.png) </kbd>
 
-![GitHub Logo](images/11.png)
+<kbd> ![GitHub Logo](images/11.png) </kbd>
 
-![GitHub Logo](images/12.png)
+<kbd> ![GitHub Logo](images/12.png) </kbd>
 
-![GitHub Logo](images/13.png)
+<kbd> ![GitHub Logo](images/13.png) </kbd>
 
-![GitHub Logo](images/14.png)
+<kbd> ![GitHub Logo](images/14.png) </kbd>
 
 ### DMS Pre-requirement for Oracle
 
@@ -135,38 +135,38 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
 # Create Replication Instance
 
-![GitHub Logo](images/15.png)
+<kbd> ![GitHub Logo](images/15.png) </kbd>
 
-![GitHub Logo](images/16.png)
+<kbd> ![GitHub Logo](images/16.png) </kbd>
 
-![GitHub Logo](images/17.png)
+<kbd> ![GitHub Logo](images/17.png) </kbd>
 
-![GitHub Logo](images/18.png)
+<kbd> ![GitHub Logo](images/18.png) </kbd>
 
-![GitHub Logo](images/19.png)
+<kbd> ![GitHub Logo](images/19.png) </kbd>
 
-![GitHub Logo](images/20.png)
+<kbd> ![GitHub Logo](images/20.png) </kbd>
 
-![GitHub Logo](images/21.png)
+<kbd> ![GitHub Logo](images/21.png) </kbd>
 
-![GitHub Logo](images/22.png)
+<kbd> ![GitHub Logo](images/22.png) </kbd>
 
-![GitHub Logo](images/23.png)
+<kbd> ![GitHub Logo](images/23.png) </kbd>
 
-![GitHub Logo](images/24.png)
+<kbd> ![GitHub Logo](images/24.png) </kbd>
 
-![GitHub Logo](images/25.png)
+<kbd> ![GitHub Logo](images/25.png) </kbd>
 
-![GitHub Logo](images/26.png)
+<kbd> ![GitHub Logo](images/26.png) </kbd>
 
 
-![GitHub Logo](images/27.png)
+<kbd> ![GitHub Logo](images/27.png) </kbd>
 
-![GitHub Logo](images/28.png)
+<kbd> ![GitHub Logo](images/28.png) </kbd>
 
-![GitHub Logo](images/29.png)
+<kbd> ![GitHub Logo](images/29.png) </kbd>
 
-![GitHub Logo](images/30.png)
+<kbd> ![GitHub Logo](images/30.png) </kbd>
 
 sh-4.2$ sudo su -
 Last login: Mon Apr 27 08:22:56 EDT 2020 on pts/0
@@ -199,9 +199,9 @@ SQL> commit;
 SQL> insert into emp(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO) values (9999, 'TOM', 'PSA', 7902, sysdate, 5000, 10);
 SQL> commit;
 
-![GitHub Logo](images/31.png)
+<kbd> ![GitHub Logo](images/31.png) </kbd>
 
-![GitHub Logo](images/32.png)
+<kbd> ![GitHub Logo](images/32.png) </kbd>
 
 ### Create Endpoint and Test
 
