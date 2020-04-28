@@ -198,6 +198,44 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
 ![GitHub Logo](images/28.png)
 
+![GitHub Logo](images/29.png)
+
+![GitHub Logo](images/30.png)
+
+sh-4.2$ sudo su -
+Last login: Mon Apr 27 08:22:56 EDT 2020 on pts/0
+root@oracle11g:/root# su - oracle
+Last login: Mon Apr 27 08:22:57 EDT 2020 on pts/0
+oracle@oracle11g:/home/oracle> sqlplus oshop/Octank#1234
+
+SQL*Plus: Release 11.2.0.4.0 Production on Mon Apr 27 20:17:14 2020
+
+Copyright (c) 1982, 2013, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> update emp set sal=3333 where empno=7777;
+1 row updated.
+
+SQL> update emp set comm=2222 where empno=7774;
+1 row updated.
+
+SQL> commit;
+Commit complete.
+
+SQL> insert into emp values (8888, 'yoon', 'PSA', 7902, sysdate, 4000, 1000, 10);
+SQL> commit;
+SQL> insert into emp values (8890, 'jenny', 'PSA', 7902, sysdate, 6000, 3000, 10);
+SQL> commit;
+SQL> insert into emp(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO) values (9999, 'TOM', 'PSA', 7902, sysdate, 5000, 10);
+SQL> commit;
+
+![GitHub Logo](images/31.png)
+
+![GitHub Logo](images/32.png)
 
 ### Create Endpoint and Test
 
