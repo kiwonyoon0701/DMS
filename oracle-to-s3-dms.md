@@ -147,6 +147,9 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
 <kbd> ![GitHub Logo](images/19.png) </kbd>
 
+### Extra Connections attributes : includeOpForFullLoad=true;cdcInsertsOnly=true
+**This endpoint will capture insert operation only**
+
 <kbd> ![GitHub Logo](images/20.png) </kbd>
 
 ## Create Target Endpoint(S3)
@@ -183,6 +186,7 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 
 <kbd> ![GitHub Logo](images/30.png) </kbd>
 
+```
 sh-4.2$ sudo su -
 Last login: Mon Apr 27 08:22:56 EDT 2020 on pts/0
 root@oracle11g:/root# su - oracle
@@ -213,6 +217,7 @@ SQL> insert into emp values (8890, 'jenny', 'PSA', 7902, sysdate, 6000, 3000, 10
 SQL> commit;
 SQL> insert into emp(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO) values (9999, 'TOM', 'PSA', 7902, sysdate, 5000, 10);
 SQL> commit;
+```
 
 <kbd> ![GitHub Logo](images/31.png) </kbd>
 
