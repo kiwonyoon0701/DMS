@@ -80,6 +80,8 @@ Welcome to the DMS wiki!
 
 <kbd> ![GitHub Logo](images/13.png) </kbd>
 
+### Execute following commands on session manager console
+
 ```
 sudo su -
 su - oracle
