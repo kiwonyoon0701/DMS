@@ -72,15 +72,25 @@ Welcome to the DMS wiki!
 
 <kbd> ![GitHub Logo](images/11.png) </kbd>
 
+# Connect to Oracle Instance console
+
 <kbd> ![GitHub Logo](images/12.png) </kbd>
 
+### Connect -> Session Manager
+
 <kbd> ![GitHub Logo](images/13.png) </kbd>
+
+```
+sudo su -
+su - oracle
+./startup.sh
+```
 
 <kbd> ![GitHub Logo](images/14.png) </kbd>
 
 # DMS Pre-requirement for Oracle
 
-### Execute following commands on session manager console 
+### Execute following commands on session manager console
 
 ```
 oracle@oracle11g:/home/oracle> sqlplus / as sysdba
@@ -148,6 +158,7 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 <kbd> ![GitHub Logo](images/19.png) </kbd>
 
 ### Extra Connections attributes : includeOpForFullLoad=true;cdcInsertsOnly=true
+
 **This endpoint will capture insert operation only**
 
 <kbd> ![GitHub Logo](images/20.png) </kbd>
@@ -169,12 +180,14 @@ ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 <kbd> ![GitHub Logo](images/25.png) </kbd>
 
 ## Check S3 Bucket
-**4 Folders created** 
+
+**4 Folders created**
 
 <kbd> ![GitHub Logo](images/26.png) </kbd>
 
 ## Check Initial Loading Data in S3 bucket
-**4 Folders created** 
+
+**4 Folders created**
 
 <kbd> ![GitHub Logo](images/27.png) </kbd>
 
