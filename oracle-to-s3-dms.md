@@ -244,6 +244,8 @@ SQL> commit;
 
 <kbd> ![GitHub Logo](images/33.png) </kbd>
 
+### Add tables using a crawler
+
 <kbd> ![GitHub Logo](images/34.png) </kbd>
 
 <kbd> ![GitHub Logo](images/35.png) </kbd>
@@ -274,11 +276,17 @@ SQL> commit;
 
 <kbd> ![GitHub Logo](images/48.png) </kbd>
 
+### View Table metadata from Glue Database
+
 <kbd> ![GitHub Logo](images/49.png) </kbd>
+
+### Query Data from Athena
 
 <kbd> ![GitHub Logo](images/50.png) </kbd>
 
 <kbd> ![GitHub Logo](images/51.png) </kbd>
+
+### Create Athena View
 
 <kbd> ![GitHub Logo](images/52.png) </kbd>
 
