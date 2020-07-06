@@ -1,4 +1,4 @@
-Welcome to the DMS wiki!
+This document describes how to build datalake on S3 from multiple data sources
 
 # Create S3 bucket
 
