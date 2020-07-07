@@ -1,4 +1,4 @@
-This document describes how to build datalake on S3 from multiple data sources
+This document describes how to build datalake on S3 from multiple data sources and ETL with glue
 
 # Create S3 bucket
 
