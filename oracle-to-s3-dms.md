@@ -206,7 +206,7 @@ sh-4.2$ sudo su -
 Last login: Mon Apr 27 08:22:56 EDT 2020 on pts/0
 root@oracle11g:/root# su - oracle
 Last login: Mon Apr 27 08:22:57 EDT 2020 on pts/0
-oracle@oracle11g:/home/oracle> sqlplus oshop/Octank#1234
+oracle@oracle11g:/home/oracle> sqlplus oshop/<PASSWORD>
 
 SQL*Plus: Release 11.2.0.4.0 Production on Mon Apr 27 20:17:14 2020
 
