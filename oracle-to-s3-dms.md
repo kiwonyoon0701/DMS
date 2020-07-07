@@ -97,7 +97,7 @@ su - oracle
 ```
 oracle@oracle11g:/home/oracle> sqlplus / as sysdba
 
-create user dms_user identified by Octank#1234 default tablespace users temporary tablespace temp quota unlimited on users;
+create user dms_user identified by <PASSWORD> default tablespace users temporary tablespace temp quota unlimited on users;
 grant connect, resource to dms_user;
 grant EXECUTE ON dbms_logmnr to dms_user;
 
