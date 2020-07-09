@@ -12,3 +12,17 @@
    3. Click "Next: Permissions"
 
 <kbd> ![GitHub Logo](images/1-1.png) </kbd>
+
+4. Attached the policy "AmazonEc2RoleforSSM" into role and click "Next: Tags"
+
+<kbd> ![GitHub Logo](images/1-2.png) </kbd>
+
+5. Click "Next:Review"
+
+6. Fill "Ec2RoleForSSM" in "Role Name" and "Role Description" in Review Page
+
+<kbd> ![GitHub Logo](images/1-3.png) </kbd>
+
+7. Role Creation
+
+<kbd> ![GitHub Logo](images/1-4.png) </kbd>
