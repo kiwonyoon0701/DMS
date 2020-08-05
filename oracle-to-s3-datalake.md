@@ -172,21 +172,7 @@ Choose a use case : DMS
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/12.png) </kbd>
 
-7.	화면 좌측의 + Button을 Click하고 아래처럼 입력
-
-<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/13.png) </kbd>
-
-```
-a.	Name : OnPREM-ORACLE
-b.	Username : sys
-c.	Role : SYSDBA
-d.	Password : Octank#1234
-e.	Hostname : 10.100.1.101
-f.	Port : 1521
-g.	SID : salesdb
-h.	“Save” Click
-i.	“Test” Click 후 Status : Success 확인
-```
+7.	OnPREM-ORACLE을 선택 후 "Connect"
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/14.png) </kbd>
 
