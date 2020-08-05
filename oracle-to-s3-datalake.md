@@ -2,9 +2,9 @@ This document describes how to build datalake on S3 from multiple data sources a
 
 # Create Key Pair
 1.	Services -> EC2 선택
-2.	화면 좌측의 “Key Pairs” Click
-3.	“Create key pair” Click
-4.	Name : id_rsa_main 입력 후 “Create key pair” click
+2.	화면 좌측의 "Key Pairs" Click
+3.	"Create key pair" Click
+4.	Name : id_rsa_main 입력 후 "Create key pair" click
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/1.png) </kbd>
 
@@ -28,18 +28,18 @@ This document describes how to build datalake on S3 from multiple data sources a
 
 	 
 1.	Services -> CloudFormation 선택
-2.	OnPREM VPC 생성 을 위해 “Create Stack” Click
-3.	“Amazon S3 URL” 부분에 
-https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입력하고 “Next” Click
+2.	OnPREM VPC 생성 을 위해 "Create Stack" Click
+3.	"Amazon S3 URL" 부분에 
+https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입력하고 "Next" Click
 
-4.	Stack name: “OnPREM”을 입력<br>
+4.	Stack name: "OnPREM"을 입력<br>
     KeyName : id_rsa_main을 선택<br>
-    나머지는 Default로 두고 “Next” Click
+    나머지는 Default로 두고 "Next" Click
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/4.png) </kbd>
 
-5.	“Configure stack options”은 Default로 두고 “Next” Click
-6.	“Review” Page에서 “I acknowledge that AWS CloudFormation might create IAM resources with custom names.”을 Check하고, “Create Stack”을 Click하여 CloudFormation 실행 
+5.	"Configure stack options"은 Default로 두고 "Next" Click
+6.	"Review" Page에서 "I acknowledge that AWS CloudFormation might create IAM resources with custom names."을 Check하고, "Create Stack"을 Click하여 CloudFormation 실행 
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/5.png) </kbd>
 
@@ -52,8 +52,14 @@ https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입
 
 
 # Create S3 bucket
+1. Services -> s3 선택
 
-**Bucket Name** : `oracle-to-s3-dms-kiwony`
+2. "Create Bucket" Click
+
+3. Bucket Name : oracle-to-datalake-<USERNAME>
+
+**Bucket Name** : `oracle-to-datalake-kiwony`
+
 
 <kbd> ![GitHub Logo](images/1.png) </kbd>
 
@@ -72,7 +78,7 @@ https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입
                 "s3:DeleteObject"
             ],
             "Resource": [
-                "arn:aws:s3:::oracle-to-s3-dms-kiwony*"
+                "arn:aws:s3:::oracle-to-datalake-kiwony*"
             ]
         },
         {
@@ -81,7 +87,7 @@ https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입
                 "s3:ListBucket"
             ],
             "Resource": [
-                "arn:aws:s3:::oracle-to-s3-dms-kiwony*"
+                "arn:aws:s3:::oracle-to-datalake-kiwony*"
             ]
         }
     ]
