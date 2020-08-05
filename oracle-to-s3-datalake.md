@@ -1,14 +1,14 @@
 This document describes how to build datalake on S3 from multiple data sources and ETL with glue
 
 # Create Key Pair
-1.	Services -> EC2 선택
-2.	화면 좌측의 "Key Pairs" Click
-3.	"Create key pair" Click
-4.	Name : id_rsa_main 입력 후 "Create key pair" click
+1. Services -> EC2 선택
+2. 화면 좌측의 "Key Pairs" Click
+3. "Create key pair" Click
+4. Name : id_rsa_main 입력 후 "Create key pair" click
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/1.png) </kbd>
 
-5.	자동으로 pem key가 다운로드 됩니다. 해당 파일은 EC2 접속을 할 수 있는 중요한 key 파일입니다. 파일 퍼미션을 400으로 변경 후, 안전한 곳에 파일을 저장합니다.
+5. 자동으로 pem key가 다운로드 됩니다. 해당 파일은 EC2 접속을 할 수 있는 중요한 key 파일입니다. 파일 퍼미션을 400으로 변경 후, 안전한 곳에 파일을 저장합니다.
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/2.png) </kbd>
 
@@ -19,35 +19,35 @@ This document describes how to build datalake on S3 from multiple data sources a
 
 참고 -------------------------------------------------
 
-	OnPrem VPC :
-	ONPREM-VPC 10.100.0.0/16
-	ONPREM-PUBLIC-SUBNET1 10.100.1.0/24
+ OnPrem VPC :
+ ONPREM-VPC 10.100.0.0/16
+ ONPREM-PUBLIC-SUBNET1 10.100.1.0/24
     ONPREM-PUBLIC-SUBNET2 10.100.2.0/24
     ONPREM-PRIVATE-SUBNET1 10.100.101.0/24
     ONPREM-PRIVATE-SUBNET2 10.100.102.0/24
 
-	 
-1.	Services -> CloudFormation 선택
-2.	OnPREM VPC 생성 을 위해 "Create Stack" Click
-3.	"Amazon S3 URL" 부분에 
+  
+1. Services -> CloudFormation 선택
+2. OnPREM VPC 생성 을 위해 "Create Stack" Click
+3. "Amazon S3 URL" 부분에 
 https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입력하고 "Next" Click
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/3.png) </kbd>
 
-4.	Stack name: "OnPREM"을 입력<br>
+4. Stack name: "OnPREM"을 입력<br>
     KeyName : id_rsa_main을 선택<br>
     나머지는 Default로 두고 "Next" Click
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/4.png) </kbd>
 
-5.	"Configure stack options"은 Default로 두고 "Next" Click
-6.	"Review" Page에서 "I acknowledge that AWS CloudFormation might create IAM resources with custom names."을 Check하고, "Create Stack"을 Click하여 CloudFormation 실행 
+5. "Configure stack options"은 Default로 두고 "Next" Click
+6. "Review" Page에서 "I acknowledge that AWS CloudFormation might create IAM resources with custom names."을 Check하고, "Create Stack"을 Click하여 CloudFormation 실행 
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/5.png) </kbd>
 
-7.	OnPREM Stack과 AWSDC Stack이 생성 완료 되는 것을 확인 (5~10분)
+7. OnPREM Stack과 AWSDC Stack이 생성 완료 되는 것을 확인 (5~10분)
 
-8.	Stack이 완료되면 OnPREM Stack Outputs Tab의 내용 중 OraclePrivateIP, TomcatPublicIP, WindowsPublicIP를 복사해둡니다. (IP로 필터링하면 EC2 IP만 아래처럼 확인 가능합니다.)
+8. Stack이 완료되면 OnPREM Stack Outputs Tab의 내용 중 OraclePrivateIP, TomcatPublicIP, WindowsPublicIP를 복사해둡니다. (IP로 필터링하면 EC2 IP만 아래처럼 확인 가능합니다.)
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/6.png) </kbd>
 
@@ -154,6 +154,52 @@ Choose a use case : DMS
 8. "Create role" click
 
 # DMS Pre-requirement for Oracle
+
+이 과정에서는 SQL Developer를 이용하여 Source OnPREM Oracle에서 Migration을 위한 선행 작업을 수행합니다. 
+이 선행 작업은 DMS를 이용하여 S3 Datalake로 Data를 이관하는데 필요합니다. 
+
+1. OnPREM stack Outputs의 WindowsPublicIP를 확인합니다.
+
+2. RDP Client(mstsc.exe)를 실행하고 Windows Server에 접속
+
+3. User name : administrator 
+
+4. Password : cm4&gFxSBN@E5AWW)gL@@wTJ=N(IoToo   <= 공백이 없도록 주의하세요!!
+
+5. “Shutdown Event Tracker” 경고창이 뜰 경우 “Cancel”을 누릅니다.
+
+6.	Windows Server 화면 아래, MySQL Workbench 메뉴 옆의 SQL Developer 실행 
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/12.png) </kbd>
+
+7.	화면 좌측의 + Button을 Click하고 아래처럼 입력
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/13.png) </kbd>
+
+```
+a.	Name : OnPREM-ORACLE
+b.	Username : sys
+c.	Role : SYSDBA
+d.	Password : Octank#1234
+e.	Hostname : ORACLE-ON-EC2의 Private IP
+f.	Port : 1521
+g.	SID : salesdb
+h.	“Save” Click
+i.	“Test” Click 후 Status : Success 확인
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/14.png) </kbd>
+
+
+
+
+
+
+
+
+
+
+
 
 ### Execute following commands on session manager console
 
