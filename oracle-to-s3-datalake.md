@@ -714,9 +714,15 @@ CREATE OR REPLACE VIEW "DATE-MODE-COUNT" AS
 select col1 as "ORDER_DATE", col2 as "ORDER_MODE", count(*) as "COUNT" from "lgcns-soe"."orders" group by col1, col2 order by 1;
 
 
+5. Name : `SellAmountByCustomerClass`
+
 ```
 select col13 as "CUSTOMER_CLASS", count(*) as "COUNT" from "lgcns-soe"."orders" group by col13 order by 2 desc;
-Create View : `SellAmountByCustomerClass`
+```
+
+6. Name : `Orders-View`
+```
+SELECT * FROM "lgcns-soe"."orders";
 ```
 
 
@@ -763,14 +769,23 @@ Select Amazon S3
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/48.png) </kbd>
 
+5. "Validation" Click
 
+6. "Create data source" Click
 
+7. Choose lgcns-soe
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/49.png) </kbd>
 
+8. Choose "date-mode-count" & "Select" Click
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/50.png) </kbd>
 
+9. "Visualize" Click
 
+10. Do something with QuickSight
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/51.png) </kbd>
 
 
 
