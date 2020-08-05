@@ -720,7 +720,7 @@ Create View : `SellAmountByCustomerClass`
 ```
 
 
-## QuickSight
+## Create QuickSight Account
 1. Services => QuickSight
 
 2. Sign up for Quicksight
@@ -729,10 +729,39 @@ Create View : `SellAmountByCustomerClass`
    
 4. "Continue" Click
 
+5. "Select a region." : `Asia Pacific(Seoul)`
+
+6. Create your QuickSight account
+
+**개인별로 Unique한 Account Name, Email을 넣으세요**
+```
+Select a region : Asia Pacific(Seoul)
+QuickSight account Name : kiwony20200805
+Notification email address : kiwony@amazon.com
+Select Amazon S3
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/46.png) </kbd>
+
+7. Select all buckets
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/47.png) </kbd>
+
+8. "Finish" Click
+
+9. "Go to Amazon QuickSight" Click
 
 
+## Create QuickSight DashBoard
+1. "New Analysis" Click
 
+2. "New dataset" Click
 
+3. "Athena" Click
+
+4. Data source name : `soe-orders`
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/48.png) </kbd>
 
 
 
