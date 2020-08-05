@@ -56,9 +56,13 @@ https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입
 
 2. "Create Bucket" Click
 
-3. Bucket Name : oracle-to-datalake-[USERNAME]
+3.
+```
+Bucket Name : oracle-to-datalake-[USERNAME]
+Region : Asia Pacific(Seoul)
+```
 
-**Bucket Name** : `oracle-to-datalake-kiwony`
+**Example** : `oracle-to-datalake-kiwony`
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/7.png) </kbd>
 
