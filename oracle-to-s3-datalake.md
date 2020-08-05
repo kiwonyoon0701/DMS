@@ -66,8 +66,18 @@ Region : Asia Pacific(Seoul)
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/7.png) </kbd>
 
+4. Click "Create"
+
 
 # Create IAM Policy & Role
+
+1. Services -> IAM
+
+2. "Policies" Click
+
+3. "Create Policy" Click
+
+4. "JSON" Click
 
 **Policy** : `prod.dms.s3.access.policy`
 
@@ -98,16 +108,36 @@ Region : Asia Pacific(Seoul)
 }
 ```
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/8.png) </kbd>
+
+5. "Review policy" Click
+
+6.  Name : prod.dms.s3.access.policy
+
+7. "Create policy" Click
+
 ### Create Role
 
 **Role** : `prod.dms.s3.access.role`
 **Attach Policy** : `prod.dms.s3.access.policy`
 
-**Select "DMS" as use case**
+1. Services -> IAM
+
+2. "Roles" Click
+
+3. "Create role" Click
+
+4. 
+```
+Select type of trusted entity : AWS service
+Choose a use case : DMS
+```
+
+5. "Next: Permissions" Click
 
 <kbd> ![GitHub Logo](images/2.png) </kbd>
 
-**Attach the created policy**
+6. Attach the created policy
 
 <kbd> ![GitHub Logo](images/3.png) </kbd>
 
