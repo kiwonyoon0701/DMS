@@ -153,42 +153,6 @@ Choose a use case : DMS
 
 8. "Create role" click
 
-# Create DB Instance
-
-**AMI-ID** : `ami-0e63e3e96d7d9e456`
-
-<kbd> ![GitHub Logo](images/5.png) </kbd>
-
-<kbd> ![GitHub Logo](images/6.png) </kbd>
-
-<kbd> ![GitHub Logo](images/7.png) </kbd>
-
-<kbd> ![GitHub Logo](images/8.png) </kbd>
-
-<kbd> ![GitHub Logo](images/9.png) </kbd>
-
-<kbd> ![GitHub Logo](images/10.png) </kbd>
-
-<kbd> ![GitHub Logo](images/11.png) </kbd>
-
-# Connect to Oracle Instance console
-
-<kbd> ![GitHub Logo](images/12.png) </kbd>
-
-### Connect -> Session Manager
-
-<kbd> ![GitHub Logo](images/13.png) </kbd>
-
-### Execute following commands on session manager console
-
-```
-sudo su -
-su - oracle
-./startup.sh
-```
-
-<kbd> ![GitHub Logo](images/14.png) </kbd>
-
 # DMS Pre-requirement for Oracle
 
 ### Execute following commands on session manager console
