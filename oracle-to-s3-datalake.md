@@ -17,14 +17,15 @@ This document describes how to build datalake on S3 from multiple data sources a
 
 이 과정에서는 OnPREM 환경에 해당하는 OnPREM VPC와 AWS 환경에 해당하는 AWSDC VPC를 CloudFormation을 이용하여 생성합니다. 
 
+```
 참고 -------------------------------------------------
 
- OnPrem VPC :
- ONPREM-VPC 10.100.0.0/16
- ONPREM-PUBLIC-SUBNET1 10.100.1.0/24
-    ONPREM-PUBLIC-SUBNET2 10.100.2.0/24
-    ONPREM-PRIVATE-SUBNET1 10.100.101.0/24
-    ONPREM-PRIVATE-SUBNET2 10.100.102.0/24
+OnPREM-VPC 10.100.0.0/16
+OnPREM-PUBLIC-SUBNET1 10.100.1.0/24
+OnPREM-PUBLIC-SUBNET2 10.100.2.0/24
+OnPREM-PRIVATE-SUBNET1 10.100.101.0/24
+OnPREM-PRIVATE-SUBNET2 10.100.102.0/24
+```
 
   
 1. Services -> CloudFormation 선택
@@ -53,7 +54,7 @@ https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입
 
 
 
-# Create S3 bucket
+# Create Datalake S3 bucket
 1. Services -> s3 선택
 
 2. "Create Bucket" Click
@@ -65,6 +66,23 @@ Region : Asia Pacific(Seoul)
 ```
 
 **Example** : `oracle-to-datalake-kiwony`
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/7.png) </kbd>
+
+4. Click "Create"
+
+# Create Query Result S3 bucket
+1. Services -> s3 선택
+
+2. "Create Bucket" Click
+
+3.
+```
+Bucket Name : lgcns-query-result-[USERNAME]
+Region : Asia Pacific(Seoul)
+```
+
+**Example** : `lgcns-query-result-kiwony`
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/7.png) </kbd>
 
@@ -526,7 +544,7 @@ Database name : lgcns-soe
 
 4. "Create" Click
 
-## Create Tables
+## Create Tables using Cralwer
 
 1. "Tables" Click
 
@@ -566,58 +584,68 @@ Create an IAM role
 AWSGlueServiceRole-GlueAdmin2
 ```
 
+9. Create a schedule for this crawler
+```
+Run on demand
+```
+
+10. Configure the crawler's output
+```
+Database : lgcns-soe
+```
+
+ 11. "Finish" Click
+
+## Run Crawler
+
+1. Check "lgcns-soe-crawloer01"
+
+2. "Run crawler" Click
+
+3. "Tables added : 1"
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/38.png) </kbd>
+
+
+## Check Created Table Metadata
+1. "Tables" Click
+
+2. "orders" Click
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/39.png) </kbd>
+
+3. Check Metadata
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/40.png) </kbd>
+
+
+## Athena Query Result Bucket Setup
+
+1. Services => Athena
+
+2. "Settings" Click
+
+3. Query result location : `s3://lgcns-query-result-kiwony`
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/41.png) </kbd>
+
+4. "Save" Click
+
+
+## Query on orders in S3
+
+1. Run query on Query tab
+`SELECT * FROM "lgcns-soe"."orders" limit 10;`
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/42.png) </kbd>
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<kbd> ![GitHub Logo](images/33.png) </kbd>
-
-### Add tables using a crawler
-
-<kbd> ![GitHub Logo](images/34.png) </kbd>
-
-<kbd> ![GitHub Logo](images/35.png) </kbd>
-
-<kbd> ![GitHub Logo](images/36.png) </kbd>
-
-<kbd> ![GitHub Logo](images/37.png) </kbd>
-
-<kbd> ![GitHub Logo](images/38.png) </kbd>
-
-<kbd> ![GitHub Logo](images/39.png) </kbd>
-
-<kbd> ![GitHub Logo](images/40.png) </kbd>
-
-<kbd> ![GitHub Logo](images/41.png) </kbd>
-
-<kbd> ![GitHub Logo](images/42.png) </kbd>
-
-<kbd> ![GitHub Logo](images/43.png) </kbd>
-
-<kbd> ![GitHub Logo](images/44.png) </kbd>
-
-<kbd> ![GitHub Logo](images/45.png) </kbd>
-
-<kbd> ![GitHub Logo](images/46.png) </kbd>
-
-<kbd> ![GitHub Logo](images/47.png) </kbd>
-
-<kbd> ![GitHub Logo](images/48.png) </kbd>
-
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/41.png) </kbd>
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/37.png) </kbd>
 ### View Table metadata from Glue Database
 
 <kbd> ![GitHub Logo](images/49.png) </kbd>
