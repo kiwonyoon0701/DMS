@@ -8,6 +8,10 @@ This document describes how to build datalake on S3 from multiple data sources a
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/1.png) </kbd>
 
+5.	자동으로 pem key가 다운로드 됩니다. 해당 파일은 EC2 접속을 할 수 있는 중요한 key 파일입니다. 파일 퍼미션을 400으로 변경 후, 안전한 곳에 파일을 저장합니다.
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/2.png) </kbd>
+
 # Create S3 bucket
 
 **Bucket Name** : `oracle-to-s3-dms-kiwony`
