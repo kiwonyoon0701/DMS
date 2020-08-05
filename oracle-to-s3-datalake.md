@@ -632,7 +632,7 @@ Database : lgcns-soe
 4. "Save" Click
 
 
-## Check data count of orders table in Oracle & DMS statistics
+## Check data count of orders table in Oracle 
 1. Services => EC2
 
 2. "OnPREM-OracleServer" Check
@@ -669,6 +669,16 @@ SQL> select /*+ parallel (a 16) */ count(*) from orders a;
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/43.png) </kbd>
 
+## Check Migration data count of orders table in DMS
+1. Services => DMS
+
+2. "Database Migration tasks" Click
+
+3. "onprem-oracle-to-s3-oracle-to-datalake-kiwony" Click
+
+4. "Table statistics" Click
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/44.png) </kbd>
 
 ## Query on orders in S3
 
@@ -677,31 +687,62 @@ SQL> select /*+ parallel (a 16) */ count(*) from orders a;
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/42.png) </kbd>
 
+2. Run count query on Query tab
+`SELECT count(*) FROM "lgcns-soe"."orders";`
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/45.png) </kbd>
+
+3. Run Following Queries for test
+```
+select col2 as "ORDER_MODE", count(*) as "COUNT" from "lgcns-soe"."orders" group by col2 order by 1;
+select col1 as "ORDER_DATE", col2 as "ORDER_MODE", count(*) as "COUNT" from "lgcns-soe"."orders" group by col1, col2 order by 1
+select col13 as "CUSTOMER_CLASS", count(*) as "COUNT" from "lgcns-soe"."orders" group by col13 order by 2 desc;
+```
+
+## Create View from Query
+
+1. Execute Query
+
+`select col1 as "ORDER_DATE", col2 as "ORDER_MODE", count(*) from "lgcns-soe"."orders" group by col1, col2 order by 1;`
+
+2. "Create" Click
+
+3. "Create View From Query" Click
+
+4. Name : `DATE-MODE-COUNT`
+CREATE OR REPLACE VIEW "DATE-MODE-COUNT" AS
+select col1 as "ORDER_DATE", col2 as "ORDER_MODE", count(*) as "COUNT" from "lgcns-soe"."orders" group by col1, col2 order by 1;
+
+
+```
+select col13 as "CUSTOMER_CLASS", count(*) as "COUNT" from "lgcns-soe"."orders" group by col13 order by 2 desc;
+Create View : `SellAmountByCustomerClass`
+```
+
+
+## QuickSight
+1. Services => QuickSight
+
+2. Sign up for Quicksight
+
+3. Select "Standard"
+   
+4. "Continue" Click
 
 
 
 
 
-<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/41.png) </kbd>
-<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/37.png) </kbd>
-### View Table metadata from Glue Database
 
-<kbd> ![GitHub Logo](images/49.png) </kbd>
 
-### Query Data from Athena
 
-<kbd> ![GitHub Logo](images/50.png) </kbd>
 
-<kbd> ![GitHub Logo](images/51.png) </kbd>
 
-### Create Athena View
 
-<kbd> ![GitHub Logo](images/52.png) </kbd>
 
-<kbd> ![GitHub Logo](images/53.png) </kbd>
 
-dms-vpc-role
-AmazonDMSVPCManagementRole
 
-dms-cloudwatch-logs-role
-AmazonDMSCloudWatchLogsRole
+
+
+
+
