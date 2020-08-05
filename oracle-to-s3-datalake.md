@@ -36,10 +36,12 @@ https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입
     KeyName : id_rsa_main을 선택<br>
     나머지는 Default로 두고 “Next” Click
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/4.png) </kbd>
 
+5.	“Configure stack options”은 Default로 두고 “Next” Click
+6.	“Review” Page에서 “I acknowledge that AWS CloudFormation might create IAM resources with custom names.”을 Check하고, “Create Stack”을 Click하여 CloudFormation 실행 
 
-
-
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/5.png) </kbd>
 
 
 
