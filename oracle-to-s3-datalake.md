@@ -410,11 +410,9 @@ Service access role ARN : arn:aws:iam::273175578093:role/prod.dms.s3.access.role
 Bucket Name : oracle-to-datalake-kiwony
 ```
 
-<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/26.png) </kbd
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/26.png) </kbd>
 
-5. "Create endpoint" Click
-
-## Test Connection between Source & Target Endpoint and Replication Instance
+## Test Connection between Source Endpoint and Replication Instance
 
 1. Services => Database Migration Service
 
@@ -424,31 +422,58 @@ Bucket Name : oracle-to-datalake-kiwony
 
 4. Actions => "Test connection"
 
-<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/27.png) </kbd
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/27.png) </kbd>
 
 5. "Run Test" Click
 
-<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/28.png) </kbd
-
-<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/26.png) </kbd
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/28.png) </kbd>
 
 
+## Test Connection between Target Endpoint and Replication Instance
 
+1. Services => Database Migration Service
 
+2. "Endpoints" Click
 
+3. "Check" s3-oracle-to-datalake-kiwony
 
+4. Actions => "Test connection"
 
+5. "Run Test" Click
 
-
-
-
-
-
-
-
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/29.png) </kbd>
 
 
 ## Create Migration Task
+1. Services => Database Migration Service
+
+2. "Database migration tasks" Click
+
+3. "Create task" Click
+
+```
+Task Identifier : OnPREM-Oracle-To-S3-oracle-to-datalake-kiwony
+Replication Instance : ri-oracletos3datalake
+Source database endpoint : onprem-oracle
+Target database endpoint : s3-oracle-to-datalake-kiwony
+Migration type : Migrate existing data
+Enable CloudWatch logs : Check
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/30.png) </kbd>
+
+
+```
+Table mapping에서 아래처럼 입력
+Editing mode – Guided UI 
+Selection rules : “Add new selection rule” Click 후 아래처럼 입력
+Schema : Enter a schema
+Schema name: SWINGBENCH2
+Table name : %
+Action : Include
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/31.png) </kbd>
 
 <kbd> ![GitHub Logo](images/23.png) </kbd>
 
