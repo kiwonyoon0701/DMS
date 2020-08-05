@@ -632,6 +632,44 @@ Database : lgcns-soe
 4. "Save" Click
 
 
+## Check data count of orders table in Oracle & DMS statistics
+1. Services => EC2
+
+2. "OnPREM-OracleServer" Check
+
+3. "Connect" Click
+
+4. Choose "Session Manager" and Click "Connect"
+
+5. Executes following commands
+
+```
+sh-4.2$ sudo su -
+Last login: Wed Aug  5 08:48:47 EDT 2020 on pts/0
+root@oracle11g:/root# su - oracle
+Last login: Wed Aug  5 08:48:47 EDT 2020 on pts/0
+oracle@oracle11g:/home/oracle> sqlplus swingbench2
+
+SQL*Plus: Release 11.2.0.4.0 Production on Wed Aug 5 09:16:57 2020
+
+Copyright (c) 1982, 2013, Oracle.  All rights reserved.
+
+Enter password:
+
+Connected to:
+Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> select /*+ parallel (a 16) */ count(*) from orders a;
+
+  COUNT(*)
+----------
+   1429790
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/43.png) </kbd>
+
+
 ## Query on orders in S3
 
 1. Run query on Query tab
