@@ -82,6 +82,7 @@ Region : Asia Pacific(Seoul)
 4. "JSON" Click
 
 **Policy** : `prod.dms.s3.access.policy`
+
 ***Please replace s3 bucket name as yours***
 
 ```
@@ -145,9 +146,12 @@ Choose a use case : DMS
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/10.png) </kbd>
 
-**Create Role**
+7.
+`Role Name : prod.dms.s3.access.role`
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/11.png) </kbd>
+
+8. "Create role" click
 
 # Create DB Instance
 
