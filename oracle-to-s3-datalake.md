@@ -12,6 +12,45 @@ This document describes how to build datalake on S3 from multiple data sources a
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/2.png) </kbd>
 
+
+# Create VPC & Test Environment
+
+이 과정에서는 OnPREM 환경에 해당하는 OnPREM VPC와 AWS 환경에 해당하는 AWSDC VPC를 CloudFormation을 이용하여 생성합니다. 
+
+참고 -------------------------------------------------
+
+	OnPrem VPC :
+	ONPREM-VPC 10.100.0.0/16
+	ONPREM-PUBLIC-SUBNET1 10.100.1.0/24
+    ONPREM-PUBLIC-SUBNET2 10.100.2.0/24
+    ONPREM-PRIVATE-SUBNET1 10.100.101.0/24
+    ONPREM-PRIVATE-SUBNET2 10.100.102.0/24
+
+	 
+1.	Services -> CloudFormation 선택
+2.	OnPREM VPC 생성 을 위해 “Create Stack” Click
+3.	“Amazon S3 URL” 부분에 
+https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입력하고 “Next” Click
+
+4.	Stack name: “OnPREM”을 입력
+    KeyName : id_rsa_main을 선택
+    나머지는 Default로 두고 “Next” Click
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Create S3 bucket
 
 **Bucket Name** : `oracle-to-s3-dms-kiwony`
