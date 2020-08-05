@@ -237,6 +237,7 @@ GRANT create any directory to dms_user;
 
 ```
 SELECT name, value, description FROM v$parameter WHERE name = 'compatible';
+
 ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
 
 ALTER TABLE SWINGBENCH2.ORDERS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
@@ -252,74 +253,66 @@ ALTER TABLE SWINGBENCH2.LOGON ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 ALTER TABLE SWINGBENCH2.ORDERENTRY_METADATA ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
 ```
 
+**ORA-32588 Error 발생시 무시합니다.**
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-### Execute following commands on session manager console
-
-```
-oracle@oracle11g:/home/oracle> sqlplus / as sysdba
-
-create user dms_user identified by <PASSWORD> default tablespace users temporary tablespace temp quota unlimited on users;
-grant connect, resource to dms_user;
-grant EXECUTE ON dbms_logmnr to dms_user;
-
-GRANT SELECT ANY TRANSACTION to dms_user;
-GRANT SELECT on V_$ARCHIVED_LOG to dms_user;
-GRANT SELECT on V_$LOG to dms_user;
-GRANT SELECT on V_$LOGFILE to dms_user;
-GRANT SELECT on V_$DATABASE to dms_user;
-GRANT SELECT on V_$THREAD to dms_user;
-GRANT SELECT on V_$PARAMETER to dms_user;
-GRANT SELECT on V_$NLS_PARAMETERS to dms_user;
-GRANT SELECT on V_$TIMEZONE_NAMES to dms_user;
-GRANT SELECT on V_$TRANSACTION to dms_user;
-GRANT SELECT on ALL_INDEXES to dms_user;
-GRANT SELECT on ALL_OBJECTS to dms_user;
-GRANT SELECT on DBA_OBJECTS to dms_user;
-GRANT SELECT on ALL_TABLES to dms_user;
-GRANT SELECT on ALL_USERS to dms_user;
-GRANT SELECT on ALL_CATALOG to dms_user;
-GRANT SELECT on ALL_CONSTRAINTS to dms_user;
-GRANT SELECT on ALL_CONS_COLUMNS to dms_user;
-GRANT SELECT on ALL_TAB_COLS to dms_user;
-GRANT SELECT on ALL_IND_COLUMNS to dms_user;
-GRANT SELECT on ALL_LOG_GROUPS to dms_user;
-GRANT SELECT on SYS.DBA_REGISTRY to dms_user;
-GRANT SELECT on SYS.OBJ$ to dms_user;
-GRANT SELECT on DBA_TABLESPACES to dms_user;
-GRANT SELECT on ALL_TAB_PARTITIONS to dms_user;
-GRANT SELECT on ALL_ENCRYPTED_COLUMNS to dms_user;
-GRANT SELECT on V_$LOGMNR_LOGS to dms_user;
-GRANT SELECT on V_$LOGMNR_CONTENTS to dms_user;
-GRANT SELECT on ALL_VIEWS to dms_user;
-GRANT SELECT ANY TABLE to dms_user;
-GRANT ALTER ANY TABLE to dms_user;
-GRANT create any directory to dms_user;
-ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
-ALTER TABLE OSHOP.DUMMY ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE OSHOP.EMP ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE OSHOP.DEPT ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE OSHOP.BIGEMP ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
-ALTER TABLE OSHOP.BONUS ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
-ALTER TABLE OSHOP.SALGRADE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
-
-```
 
 # Database Migration Service
 
+## DMS 사용을 위한 Role 생성
+
+1.	DMS에서 사용할 dms-vpc-role을 우선 생성합니다. 
+
+```
+a.	Service -> IAM으로 이동
+b.	좌측 메뉴에서 Roles 클릭
+c.	“Create role” 버튼 클릭
+d.	Select type of trusted entity에서 DMS 선택 후 “Next: Permissions” 클릭
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/18.png) </kbd>
+
+```
+e.	Attach permissions policies에서 AmazonDMSVPCManagementRole선택 후 “Next: Tags” 클릭
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/19.png) </kbd>
+
+```
+f.	Add tags (optional)은 Skip하고 “Nex: Review” 버튼 클릭
+g.	Review에서 Role name에 “dms-vpc-role” 입력 후 “Create role” 버튼 클릭. (만약 이미 해당 Role이 있다고 나올 경우 Cancel하고, 이후 Step을 진행합니다.
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/20.png) </kbd>
+
+2. DMS에서 사용할 dms-cloudwatch-logs-role을 생성합니다. 
+
+```
+a.	Service -> IAM으로 이동
+b.	좌측 메뉴에서 Roles 클릭
+c.	“Create role” 버튼 클릭
+d.	Select type of trusted entity에서 DMS 선택 후 “Next: Permissions” 클릭
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/21.png) </kbd>
+
+```
+e.	Attach permissions policies에서 AmazonDMSCloudWatchLogsRole선택 후 “Next: Tags” 클릭
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/22.png) </kbd>
+
+```
+f.	Add tags (optional)은 Skip하고 “Nex: Review” 버튼 클릭
+g.	Review에서 Role name에 “dms-vpc-role” 입력 후 “Create role” 버튼 클릭. (만약 이미 해당 Role이 있다고 나올 경우 Cancel하고, 이후 Step을 진행합니다.
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/23.png) </kbd>
+
 ## Create Replication Instance
+
+1. Services => Database Migration Service
 
 <kbd> ![GitHub Logo](images/15.png) </kbd>
 
