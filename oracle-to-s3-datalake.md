@@ -181,7 +181,7 @@ a.	Name : OnPREM-ORACLE
 b.	Username : sys
 c.	Role : SYSDBA
 d.	Password : Octank#1234
-e.	Hostname : ORACLE-ON-EC2의 Private IP
+e.	Hostname : 10.100.1.101
 f.	Port : 1521
 g.	SID : salesdb
 h.	“Save” Click
@@ -189,6 +189,85 @@ i.	“Test” Click 후 Status : Success 확인
 ```
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/14.png) </kbd>
+
+8.	OnPREM-ORACLE 선행 작업 수행
+
+```
+a.	“Connect” Click 하여 접속(다시 sys password를 물어볼 경우 Octank#1234 입력)
+b.	Worksheet에서 다음의 선행작업을 수행
+c.	바탕화면의 Query.txt에서 “2. SQL Developer를 이용하여 OnPREM Oracle 선행 작업” 부분을 복사
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/15.png) </kbd>
+
+9. 한 줄씩 Query를 수행 (실행하려는 Statement에 마우스 커서를 두고, 아래 화면의 맨 좌측 초록색 화살표를 클릭하면 Query 실행)
+```
+create user dms_user identified by Octank#1234 default tablespace users temporary tablespace temp quota unlimited on users;
+grant connect, resource to dms_user;
+grant EXECUTE ON dbms_logmnr to dms_user;
+```
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/16.png) </kbd>
+
+10. 다음의 Grant Statement들을 Drag하여 모두 선택 후 Query 실행(SQL Developer의 Bug때문에 Grant 문장들을 3번 정도 실행합니다.)
+
+```
+GRANT SELECT ANY TRANSACTION to dms_user;
+GRANT SELECT on V_$ARCHIVED_LOG to dms_user;
+GRANT SELECT on V_$LOG to dms_user;
+GRANT SELECT on V_$LOGFILE to dms_user;
+GRANT SELECT on V_$DATABASE to dms_user;
+GRANT SELECT on V_$THREAD to dms_user;
+GRANT SELECT on V_$PARAMETER to dms_user;
+GRANT SELECT on V_$NLS_PARAMETERS to dms_user;
+GRANT SELECT on V_$TIMEZONE_NAMES to dms_user;
+GRANT SELECT on V_$TRANSACTION to dms_user;
+GRANT SELECT on ALL_INDEXES to dms_user;
+GRANT SELECT on ALL_OBJECTS to dms_user;
+GRANT SELECT on DBA_OBJECTS to dms_user; 
+GRANT SELECT on ALL_TABLES to dms_user;
+GRANT SELECT on ALL_USERS to dms_user;
+GRANT SELECT on ALL_CATALOG to dms_user;
+GRANT SELECT on ALL_CONSTRAINTS to dms_user;
+GRANT SELECT on ALL_CONS_COLUMNS to dms_user;
+GRANT SELECT on ALL_TAB_COLS to dms_user;
+GRANT SELECT on ALL_IND_COLUMNS to dms_user;
+GRANT SELECT on ALL_LOG_GROUPS to dms_user;
+GRANT SELECT on SYS.DBA_REGISTRY to dms_user;
+GRANT SELECT on SYS.OBJ$ to dms_user;
+GRANT SELECT on DBA_TABLESPACES to dms_user;
+GRANT SELECT on ALL_TAB_PARTITIONS to dms_user;
+GRANT SELECT on ALL_ENCRYPTED_COLUMNS to dms_user;
+GRANT SELECT on V_$LOGMNR_LOGS to dms_user;
+GRANT SELECT on V_$LOGMNR_CONTENTS to dms_user;
+GRANT SELECT on ALL_VIEWS to dms_user;
+GRANT SELECT ANY TABLE to dms_user;
+GRANT ALTER ANY TABLE to dms_user;
+GRANT create any directory to dms_user;
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/17.png) </kbd>
+
+11. 다음의 Query들을 한줄씩 수행합니다. 
+
+```
+SELECT name, value, description FROM v$parameter WHERE name = 'compatible';
+ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
+
+ALTER TABLE SWINGBENCH2.ORDERS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+ALTER TABLE SWINGBENCH2.CUSTOMERS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+ALTER TABLE SWINGBENCH2.ADDRESSES ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+ALTER TABLE SWINGBENCH2.CARD_DETAILS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+ALTER TABLE SWINGBENCH2.WAREHOUSES ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+ALTER TABLE SWINGBENCH2.ORDER_ITEMS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+ALTER TABLE SWINGBENCH2.INVENTORIES ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+ALTER TABLE SWINGBENCH2.PRODUCT_INFORMATION ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+ALTER TABLE SWINGBENCH2.PRODUCT_DESCRIPTIONS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+ALTER TABLE SWINGBENCH2.LOGON ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
+ALTER TABLE SWINGBENCH2.ORDERENTRY_METADATA ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS;
+```
+
+
+
 
 
 
