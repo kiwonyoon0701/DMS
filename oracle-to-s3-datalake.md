@@ -43,13 +43,11 @@ https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/5.png) </kbd>
 
+7.	OnPREM Stack과 AWSDC Stack이 생성 완료 되는 것을 확인 (5~10분)
 
+8.	Stack이 완료되면 OnPREM Stack Outputs Tab의 내용 중 OraclePrivateIP, TomcatPublicIP, WindowsPublicIP를 복사해둡니다. (IP로 필터링하면 EC2 IP만 아래처럼 확인 가능합니다.)
 
-
-
-
-
-
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/6.png) </kbd>
 
 
 
