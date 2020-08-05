@@ -32,8 +32,8 @@ This document describes how to build datalake on S3 from multiple data sources a
 3.	“Amazon S3 URL” 부분에 
 https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입력하고 “Next” Click
 
-4.	Stack name: “OnPREM”을 입력
-    KeyName : id_rsa_main을 선택
+4.	Stack name: “OnPREM”을 입력<br>
+    KeyName : id_rsa_main을 선택<br>
     나머지는 Default로 두고 “Next” Click
 
 
