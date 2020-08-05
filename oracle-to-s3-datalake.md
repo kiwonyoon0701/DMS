@@ -391,6 +391,7 @@ SID/Service name : salesdb
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/25.png) </kbd>
 
+### Extra Connections attributes : includeOpForFullLoad=true;cdcInsertsOnly=true
 
 ## Create Target Endpoint(S3)
 1. Services => Database Migration Service
@@ -411,17 +412,41 @@ Bucket Name : oracle-to-datalake-kiwony
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/26.png) </kbd
 
-### Extra Connections attributes : includeOpForFullLoad=true;cdcInsertsOnly=true
+5. "Create endpoint" Click
 
-**This endpoint will capture insert operation only**
+## Test Connection between Source & Target Endpoint and Replication Instance
 
-<kbd> ![GitHub Logo](images/20.png) </kbd>
+1. Services => Database Migration Service
 
-## Create Target Endpoint(S3)
+2. "Endpoints" Click
 
-<kbd> ![GitHub Logo](images/21.png) </kbd>
+3. "Check" onprem-oracle
 
-<kbd> ![GitHub Logo](images/22.png) </kbd>
+4. Actions => "Test connection"
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/27.png) </kbd
+
+5. "Run Test" Click
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/28.png) </kbd
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/26.png) </kbd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Create Migration Task
 
