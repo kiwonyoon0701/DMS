@@ -1,5 +1,13 @@
 This document describes how to build datalake on S3 from multiple data sources and ETL with glue
 
+# Create Key Pair
+1.	Services -> EC2 선택
+2.	화면 좌측의 “Key Pairs” Click
+3.	“Create key pair” Click
+4.	Name : id_rsa_main 입력 후 “Create key pair” click
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/1.png) </kbd>
+
 # Create S3 bucket
 
 **Bucket Name** : `oracle-to-s3-dms-kiwony`
