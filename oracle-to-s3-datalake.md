@@ -475,74 +475,114 @@ Action : Include
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/31.png) </kbd>
 
-<kbd> ![GitHub Logo](images/23.png) </kbd>
-
-<kbd> ![GitHub Logo](images/24.png) </kbd>
+4. "Create task" Click
 
 ## Check Table Statistics
 
-<kbd> ![GitHub Logo](images/25.png) </kbd>
+1. Services => Database Migration Service
+
+2. "Database migration tasks" Click
+
+3. "onprem-oracle-to-s3-oracle-to-datalake-kiwony" Click
+
+4. "Table statistics" Click
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/32.png) </kbd>
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/33.png) </kbd>
+
 
 ## Check S3 Bucket
 
-**4 Folders created**
+1. Services => S3
 
-<kbd> ![GitHub Logo](images/26.png) </kbd>
+2. "oracle-to-datalake-kiwony" Click
 
-## Check Initial Loading Data in S3 bucket
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/34.png) </kbd>
 
-**4 Folders created**
+3. "SWINGBENCH2" Click
 
-<kbd> ![GitHub Logo](images/27.png) </kbd>
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/35.png) </kbd>
 
-<kbd> ![GitHub Logo](images/28.png) </kbd>
+4. "ORDERS" Click
 
-<kbd> ![GitHub Logo](images/29.png) </kbd>
+5. "LOAD00000001.csv" Click and download & Open
 
-## Connect to System Manager Console to raise new insert operation
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/36.png) </kbd>
 
-<kbd> ![GitHub Logo](images/30.png) </kbd>
-
-```
-sh-4.2$ sudo su -
-Last login: Mon Apr 27 08:22:56 EDT 2020 on pts/0
-root@oracle11g:/root# su - oracle
-Last login: Mon Apr 27 08:22:57 EDT 2020 on pts/0
-oracle@oracle11g:/home/oracle> sqlplus oshop/<PASSWORD>
-
-SQL*Plus: Release 11.2.0.4.0 Production on Mon Apr 27 20:17:14 2020
-
-Copyright (c) 1982, 2013, Oracle.  All rights reserved.
-
-
-Connected to:
-Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production
-With the Partitioning, OLAP, Data Mining and Real Application Testing options
-
-SQL> update emp set sal=3333 where empno=7777;
-1 row updated.
-
-SQL> update emp set comm=2222 where empno=7774;
-1 row updated.
-
-SQL> commit;
-Commit complete.
-
-SQL> insert into emp values (8888, 'yoon', 'PSA', 7902, sysdate, 4000, 1000, 10);
-SQL> commit;
-SQL> insert into emp values (8890, 'jenny', 'PSA', 7902, sysdate, 6000, 3000, 10);
-SQL> commit;
-SQL> insert into emp(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO) values (9999, 'TOM', 'PSA', 7902, sysdate, 5000, 10);
-SQL> commit;
-```
-
-<kbd> ![GitHub Logo](images/31.png) </kbd>
-
-<kbd> ![GitHub Logo](images/32.png) </kbd>
 
 # Glue & Athena
 
-### Create Database
+## Create Database
+
+1. Services => Glue
+
+2. "Databases" Click
+
+3. "Add database" Click
+```
+Database name : lgcns-soe
+```
+
+4. "Create" Click
+
+## Create Tables
+
+1. "Tables" Click
+
+2. "Add tables" Click
+
+3. "Add tables using a crawler" Click
+
+4. Add information about your crawler
+```
+Cralwer Name : lgcns-soe-crawloer01
+```
+
+5. Specify crawler source type
+```
+Cralwer source type : Data stores
+```
+
+6. Add a data store
+```
+Choose a data store : S3
+Crawl data in : Specified path in my account
+
+Include Path : s3://oracle-to-datalake-kiwony/SWINGBENCH2/ORDERS
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/37.png) </kbd>
+
+7. Add another data store
+
+```
+Add another data store : no
+```
+
+8. Choose an IAM role
+```
+Create an IAM role
+AWSGlueServiceRole-GlueAdmin2
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <kbd> ![GitHub Logo](images/33.png) </kbd>
 
