@@ -142,11 +142,11 @@ Choose a use case : DMS
 
 6. Attach the created policy - `prod.dms.s3.access.policy`
 
-<kbd> ![GitHub Logo](images/3.png) </kbd>
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/10.png) </kbd>
 
 **Create Role**
 
-<kbd> ![GitHub Logo](images/4.png) </kbd>
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/11.png) </kbd>
 
 # Create DB Instance
 
