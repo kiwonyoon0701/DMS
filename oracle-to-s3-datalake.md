@@ -82,6 +82,7 @@ Region : Asia Pacific(Seoul)
 4. "JSON" Click
 
 **Policy** : `prod.dms.s3.access.policy`
+***Please replace s3 bucket name as yours***
 
 ```
 {
