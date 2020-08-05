@@ -787,6 +787,20 @@ Select Amazon S3
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/51.png) </kbd>
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/52.png) </kbd>
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/53.png) </kbd>
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/54.png) </kbd>
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/55.png) </kbd>
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/56.png) </kbd>
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/57.png) </kbd>
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/58.png) </kbd>
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/59.png) </kbd>
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/60.png) </kbd>
