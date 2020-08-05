@@ -60,8 +60,8 @@ https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입
 
 **Bucket Name** : `oracle-to-datalake-kiwony`
 
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/7.png) </kbd>
 
-<kbd> ![GitHub Logo](images/1.png) </kbd>
 
 # Create IAM Policy & Role
 
