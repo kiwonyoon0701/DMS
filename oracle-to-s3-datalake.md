@@ -90,6 +90,39 @@ Region : Asia Pacific(Seoul)
     "Version": "2012-10-17",
     "Statement": [
         {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetAccessPoint",
+                "s3:PutAccountPublicAccessBlock",
+                "s3:GetAccountPublicAccessBlock",
+                "s3:ListAllMyBuckets",
+                "s3:ListAccessPoints",
+                "s3:ListJobs",
+                "s3:CreateJob",
+                "s3:HeadBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::oracle-to-datalake-kiwony*"
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::oracle-to-datalake-kiwony*"
+        }
+    ]
+}
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
             "Effect": "Allow",
             "Action": [
                 "s3:PutObject",
@@ -314,17 +347,69 @@ g.	Review에서 Role name에 “dms-vpc-role” 입력 후 “Create role” 버
 
 1. Services => Database Migration Service
 
+2. "Replication Instances" Click
+
+3. "Create replication Instance" Click
+
+4. Put the values as following
+```
+Name : RI-OracleToAurora
+Description : RI-OracleToAurora
+Instance class : dms.c4.xlarge
+Engine version : 3.4.0
+Allocated storage : 50
+VPC : OnPREM
+Multi AZ : Uncheck
+Publicly accessible : Uncheck
+나머지 값들은 Default 사용 
+```
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/24.png) </kbd>
+
+5. "Create" Click
+
 <kbd> ![GitHub Logo](images/15.png) </kbd>
 
 ## Create Source Endpoint(Oracle)
+1. Services => Database Migration Service
 
-<kbd> ![GitHub Logo](images/16.png) </kbd>
+2. "Endpoints" Click
 
-<kbd> ![GitHub Logo](images/17.png) </kbd>
+3. "Create endpoint" Click
 
-<kbd> ![GitHub Logo](images/18.png) </kbd>
+4. Put the values as following
 
-<kbd> ![GitHub Logo](images/19.png) </kbd>
+```
+Endpoint type : Source endpoint
+Endpoint identifier : OnPREM-ORACLE
+Source engine : oracle
+Server name : 10.100.1.101
+Port : 1521
+User name : dms_user
+Password : Octank#1234
+SID/Service name : salesdb
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/25.png) </kbd>
+
+
+## Create Target Endpoint(S3)
+1. Services => Database Migration Service
+
+2. "Endpoints" Click
+
+3. "Create endpoint" Click
+
+4. Put the values as following
+
+```
+Endpoint type : Target endpoint
+Endpoint identifier : S3-oracle-to-datalake-kiwony
+Source engine : S3
+Service access role ARN : arn:aws:iam::273175578093:role/prod.dms.s3.access.role
+Bucket Name : oracle-to-datalake-kiwony
+```
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/26.png) </kbd
 
 ### Extra Connections attributes : includeOpForFullLoad=true;cdcInsertsOnly=true
 
