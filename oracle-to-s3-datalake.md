@@ -383,8 +383,6 @@ Publicly accessible : Uncheck
 
 5. "Create" Click
 
-<kbd> ![GitHub Logo](images/15.png) </kbd>
-
 ## Create Source Endpoint(Oracle)
 1. Services => Database Migration Service
 
@@ -407,7 +405,6 @@ SID/Service name : salesdb
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/25.png) </kbd>
 
-### Extra Connections attributes : includeOpForFullLoad=true;cdcInsertsOnly=true
 
 ## Create Target Endpoint(S3)
 1. Services => Database Migration Service
