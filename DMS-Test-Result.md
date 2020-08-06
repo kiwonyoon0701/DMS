@@ -1,6 +1,4 @@
-Case 1 : 
-    RI :
-    Aurora : r5.xlarge
+# Case 1 : 
 
 
 | Replication Instance | Aurora Instance | Parallel Load | Elapsed Time |
