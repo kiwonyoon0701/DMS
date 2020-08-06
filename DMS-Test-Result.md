@@ -88,6 +88,28 @@
 <kbd> ![GitHub Logo](DMS-Test-Result-images/36.png) </kbd>
 
 
+# Case 5 : 
+Using Multiple Task
+
+| Replication Instance | Aurora Instance | Parallel Load | Elapsed Time |
+| -------------------- | --------------- | ------------- | ------------ |
+| 8xlarge              | 4xlarge         | 8             | 35m          |
+| 8xlarge              | 4xlarge         | 8             | 30m          |
+| 8xlarge              | 4xlarge         | 8             | 29m          |
+| 8xlarge              | 4xlarge         | 8             | 28m          |
+
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/31.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/32.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/33.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/34.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/35.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/36.png) </kbd>
 
 
 
@@ -95,10 +117,5 @@
 
 
 
-<kbd> ![GitHub Logo](DMS-Test-Result-images/7.png) </kbd>
 
-<kbd> ![GitHub Logo](DMS-Test-Result-images/8.png) </kbd>
 
-<kbd> ![GitHub Logo](DMS-Test-Result-images/9.png) </kbd>
-
-<kbd> ![GitHub Logo](DMS-Test-Result-images/10.png) </kbd>
