@@ -619,7 +619,7 @@ Database : lgcns-soe
 
 2. "Settings" Click
 
-3. Query result location : `s3://lgcns-query-result-kiwony`
+3. Query result location : `s3://lgcns-query-result-kiwony` (사용자별로 만든 S3 Bucket Name 사용)
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/41.png) </kbd>
 
