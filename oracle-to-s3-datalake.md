@@ -15,7 +15,7 @@ This document describes how to build datalake on S3 from multiple data sources a
 
 # Create VPC & Test Environment
 
-이 과정에서는 OnPREM 환경에 해당하는 OnPREM VPC와 AWS 환경에 해당하는 AWSDC VPC를 CloudFormation을 이용하여 생성합니다. 
+이 과정에서는 OnPREM 환경에 해당하는 OnPREM VPC와 AWS 환경에 해당하는 CloudFormation을 이용하여 생성합니다. 
 
 ```
 참고 -------------------------------------------------
@@ -46,7 +46,7 @@ https://migration-hol-kiwony.s3.ap-northeast-2.amazonaws.com/OnPREM3.yml 를 입
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/5.png) </kbd>
 
-7. OnPREM Stack과 AWSDC Stack이 생성 완료 되는 것을 확인 (5~10분)
+7. OnPREM Stack이 생성 완료 되는 것을 확인 (5~10분)
 
 8. Stack이 완료되면 OnPREM Stack Outputs Tab의 내용 중 OraclePrivateIP, TomcatPublicIP, WindowsPublicIP를 복사해둡니다. (IP로 필터링하면 EC2 IP만 아래처럼 확인 가능합니다.)
 
@@ -136,34 +136,8 @@ Region : Asia Pacific(Seoul)
         }
     ]
 }
-
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject",
-                "s3:DeleteObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::oracle-to-datalake-kiwony*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::oracle-to-datalake-kiwony*"
-            ]
-        }
-    ]
-}
 ```
 
-<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/8.png) </kbd>
 
 5. "Review policy" Click
 
