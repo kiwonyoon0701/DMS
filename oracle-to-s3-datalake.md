@@ -310,6 +310,9 @@ g.	Review에서 Role name에 “dms-vpc-role” 입력 후 “Create role” 버
 ```
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/20.png) </kbd>
+<BR>
+<BR>
+
 
 2. DMS에서 사용할 dms-cloudwatch-logs-role을 생성합니다. 
 
@@ -330,7 +333,7 @@ e.	Attach permissions policies에서 AmazonDMSCloudWatchLogsRole선택 후 “Ne
 
 ```
 f.	Add tags (optional)은 Skip하고 “Nex: Review” 버튼 클릭
-g.	Review에서 Role name에 “dms-vpc-role” 입력 후 “Create role” 버튼 클릭. (만약 이미 해당 Role이 있다고 나올 경우 Cancel하고, 이후 Step을 진행합니다.
+g.	Review에서 Role name에 "dms-cloudwatch-logs-role" 입력 후 “Create role” 버튼 클릭. (만약 이미 해당 Role이 있다고 나올 경우 Cancel하고, 이후 Step을 진행합니다.
 ```
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/23.png) </kbd>
