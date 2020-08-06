@@ -65,6 +65,27 @@
 
 <kbd> ![GitHub Logo](DMS-Test-Result-images/26.png) </kbd>
 
+# Case 4 : 
+
+| Replication Instance | Aurora Instance | Parallel Load | Elapsed Time |
+| -------------------- | --------------- | ------------- | ------------ |
+| 8xlarge              | xlarge          | 8             | 2hr 8m       |
+| 8xlarge              | 2xlarge         | 8             | 1hr 1m       |
+| 8xlarge              | 4xlarge         | 8             | 37m          |
+| 8xlarge              | 8xlarge         | 8             | 35m          |
+
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/31.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/32.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/33.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/34.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/35.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/36.png) </kbd>
 
 
 
