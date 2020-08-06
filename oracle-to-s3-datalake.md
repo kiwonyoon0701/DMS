@@ -418,8 +418,8 @@ SID/Service name : salesdb
 Endpoint type : Target endpoint
 Endpoint identifier : S3-oracle-to-datalake-kiwony (사용자별 이름으로 수정하세요)
 Source engine : S3
-Service access role ARN : arn:aws:iam::273175578093:role/prod.dms.s3.access.role (IAM => )
-Bucket Name : oracle-to-datalake-kiwony
+Service access role ARN : arn:aws:iam::273175578093:role/prod.dms.s3.access.role (기록해둔 Role ARN을 입력)
+Bucket Name : oracle-to-datalake-kiwony (사용자별 이름으로 수정하세요)
 ```
 
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/26.png) </kbd>
