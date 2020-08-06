@@ -189,6 +189,8 @@ Choose a use case : DMS
 
 4. "prod.dms.s3.access.role" Click
 
+5. Role ARN을 기록해둡니다. (DMS Target Endpoint 생성 시 사용합니다.)
+
 <kbd> ![GitHub Logo](oracle-to-s3-datalake-images/55.png) </kbd>
 
 
