@@ -38,7 +38,6 @@ sct-20200806-kiwony
         ]
     }}
 
-AKIAZVQXJIKFCMRMETYP
 
 sct-truststore
 sct-keystore
