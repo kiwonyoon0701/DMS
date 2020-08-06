@@ -178,6 +178,21 @@ Choose a use case : DMS
 
 8. "Create role" click
 
+### Check IAM Role ARN
+1. Services => IAM
+
+2. "Roles" Click
+
+3. "prod.dms.s3.access.role" Searching
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/54.png) </kbd>
+
+4. "prod.dms.s3.access.role" Click
+
+<kbd> ![GitHub Logo](oracle-to-s3-datalake-images/55.png) </kbd>
+
+
+
 # DMS Pre-requirement for Oracle
 
 이 과정에서는 SQL Developer를 이용하여 Source OnPREM Oracle에서 Migration을 위한 선행 작업을 수행합니다. 
@@ -399,9 +414,9 @@ SID/Service name : salesdb
 
 ```
 Endpoint type : Target endpoint
-Endpoint identifier : S3-oracle-to-datalake-kiwony
+Endpoint identifier : S3-oracle-to-datalake-kiwony (사용자별 이름으로 수정하세요)
 Source engine : S3
-Service access role ARN : arn:aws:iam::273175578093:role/prod.dms.s3.access.role
+Service access role ARN : arn:aws:iam::273175578093:role/prod.dms.s3.access.role (IAM => )
 Bucket Name : oracle-to-datalake-kiwony
 ```
 
