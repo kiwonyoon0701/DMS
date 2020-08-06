@@ -3,10 +3,10 @@
 
 | Replication Instance | Aurora Instance | Parallel Load | Elapsed Time |
 | -------------------- | --------------- | ------------- | ------------ |
-| 2xlarge              | xlarge          | 8             | 2hr 9m       |
-| 2xlarge              | 2xlarge         | 8             | 1hr 24m      |
-| 2xlarge              | 4xlarge         | 8             | 1hr 24m      |
-| 2xlarge              | 8xlarge         | 8             | 1hr 22m      |
+| xlarge               | xlarge          | 8             | 2hr 9m       |
+| xlarge               | 2xlarge         | 8             | 1hr 24m      |
+| xlarge               | 4xlarge         | 8             | 1hr 24m      |
+| xlarge               | 8xlarge         | 8             | 1hr 22m      |
 
 
 <kbd> ![GitHub Logo](DMS-Test-Result-images/1.png) </kbd>
@@ -26,10 +26,10 @@
 
 | Replication Instance | Aurora Instance | Parallel Load | Elapsed Time |
 | -------------------- | --------------- | ------------- | ------------ |
-| 2xlarge              | xlarge          | 8             | 2hr 9m       |
-| 2xlarge              | 2xlarge         | 8             | 1hr 24m      |
-| 2xlarge              | 4xlarge         | 8             | 1hr 24m      |
-| 2xlarge              | 8xlarge         | 8             | 1hr 22m      |
+| 2xlarge              | xlarge          | 8             | 2hr 11m      |
+| 2xlarge              | 2xlarge         | 8             | 1hr 2m       |
+| 2xlarge              | 4xlarge         | 8             | 47m          |
+| 2xlarge              | 8xlarge         | 8             | 48m          |
 
 
 <kbd> ![GitHub Logo](DMS-Test-Result-images/11.png) </kbd>
@@ -45,7 +45,25 @@
 <kbd> ![GitHub Logo](DMS-Test-Result-images/16.png) </kbd>
 
 
+# Case 3 : 
 
+| Replication Instance | Aurora Instance | Parallel Load | Elapsed Time |
+| -------------------- | --------------- | ------------- | ------------ |
+| 4xlarge              | xlarge          | 8             | 2hr 11m      |
+| 4xlarge              | 2xlarge         | 8             | 1hr 1m       |
+| 4xlarge              | 4xlarge         | 8             | 37m          |
+| 4xlarge              | 8xlarge         | 8             | 35m          |
+
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/22.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/23.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/24.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/25.png) </kbd>
+
+<kbd> ![GitHub Logo](DMS-Test-Result-images/26.png) </kbd>
 
 
 
