@@ -548,7 +548,7 @@ Database name : lgcns-soe
 
 4. Add information about your crawler
 ```
-Cralwer Name : lgcns-soe-crawloer01
+Cralwer Name : lgcns-soe-crawler01
 ```
 
 5. Specify crawler source type
