@@ -1,7 +1,7 @@
 Table
 ORDERS001 ~ ORDERS100
 
-Each Table Rows : 22893792
+Each Table Rows : 2289,3792
 Each Segment Size : 2.35G
 
 Total Rows : 22,8937,9200
@@ -131,5 +131,25 @@ SQL> select count(*) from orders001;
   COUNT(*)
 ----------
   22893792
+
+```
+
+```
+OnPrem Oracle : m4.16xlarge
+
+RDS Postgre : m5.12xlarge
+
+RI : dms.r4.8xlarge
+
+
+
+```
+
+```
+Table1~10
+2,0000,0000
+23.5G
+9min
+37,0000/sec full load speed
 
 ```

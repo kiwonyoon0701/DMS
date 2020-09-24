@@ -1,0 +1,206 @@
+nohup: Create-and-Start-Task-80-100.shnohup: : Create-and-Start-Task-40-79.shnohup: No such file or directory
+: Create-and-Start-Task-01-39.shNo such file or directory
+: No such file or directory
+
+An error occurred (InvalidParameterValueException) when calling the CreateReplicationTask operation: Invalid Table Mappings document. Invalid json Unexpected character (']' (code 93)): expected a valid value (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+creating
+creating
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+creating
+creating
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+creating
+creating
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+creating
+creating
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+creating
+creating
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+creating
+creating
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+ready
+BREAK
+ready
+BREAK
+{
+    "ReplicationTask": {
+        "ReplicationTaskIdentifier": "orders01-39-task",
+        "SourceEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:RSICUHNZHGR3LEM774Q2HHPLIPDAG732YIRLEWQ",
+        "TargetEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:HUDRZ3O6WFZOJ3KFEIJLUY6J6F7NWXKJACIKGHQ",
+        "ReplicationInstanceArn": "arn:aws:dms:ap-northeast-2:664695030410:rep:4UO7VATLK73OPWDGMFPW3R6SDKBCZH5OYRIDFEI",
+        "MigrationType": "full-load",
+        "TableMappings": "{\n    \"rules\": [\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"1\",\n            \"rule-name\": \"1\",\n            \"rule-target\": \"table\",\n            \"object-locator\": {\n                \"schema-name\": \"%\",\n                \"table-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"2\",\n            \"rule-name\": \"2\",\n            \"rule-target\": \"schema\",\n            \"object-locator\": {\n                \"schema-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"3\",\n            \"rule-name\": \"3\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS07%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"4\",\n            \"rule-name\": \"4\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS06%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"5\",\n            \"rule-name\": \"5\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS05%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"6\",\n            \"rule-name\": \"6\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS04%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        }\n    ]\n}\n",
+        "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":false,\"LobChunkSize\":64,\"LimitedSizeLobMode\":true,\"LobMaxSize\":32,\"InlineLobMaxSize\":0,\"LoadMaxFileSize\":0,\"ParallelLoadThreads\":0,\"ParallelLoadBufferSize\":0,\"BatchApplyEnabled\":false,\"TaskRecoveryTableEnabled\":false,\"ParallelLoadQueuesPerThread\":0,\"ParallelApplyThreads\":0,\"ParallelApplyBufferSize\":0,\"ParallelApplyQueuesPerThread\":0},\"FullLoadSettings\":{\"TargetTablePrepMode\":\"TRUNCATE_BEFORE_LOAD\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"MaxFullLoadSubTasks\":48,\"TransactionConsistencyTimeout\":600,\"CommitRate\":50000},\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Id\":\"TRANSFORMATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_UNLOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"IO\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_LOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"PERFORMANCE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_CAPTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SORTER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"REST_SERVER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"VALIDATOR_EXT\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_APPLY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TASK_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TABLES_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"METADATA_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_FACTORY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMON\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"ADDONS\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"DATA_STRUCTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMUNICATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_TRANSFER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"}],\"CloudWatchLogGroup\":\"dms-tasks-onprem-ri\",\"CloudWatchLogStream\":\"dms-task-LOS2J6RB3WE6WDBXCNUCPGKXGOHE2HFG2TWR33I\"},\"ControlTablesSettings\":{\"historyTimeslotInMinutes\":5,\"ControlSchema\":\"\",\"HistoryTimeslotInMinutes\":5,\"HistoryTableEnabled\":false,\"SuspendedTablesTableEnabled\":false,\"StatusTableEnabled\":false},\"StreamBufferSettings\":{\"StreamBufferCount\":3,\"StreamBufferSizeInMB\":8,\"CtrlStreamBufferSizeInMB\":5},\"ChangeProcessingDdlHandlingPolicy\":{\"HandleSourceTableDropped\":true,\"HandleSourceTableTruncated\":true,\"HandleSourceTableAltered\":true},\"ErrorBehavior\":{\"DataErrorPolicy\":\"LOG_ERROR\",\"DataTruncationErrorPolicy\":\"LOG_ERROR\",\"DataErrorEscalationPolicy\":\"SUSPEND_TABLE\",\"DataErrorEscalationCount\":0,\"TableErrorPolicy\":\"SUSPEND_TABLE\",\"TableErrorEscalationPolicy\":\"STOP_TASK\",\"TableErrorEscalationCount\":0,\"RecoverableErrorCount\":-1,\"RecoverableErrorInterval\":5,\"RecoverableErrorThrottling\":true,\"RecoverableErrorThrottlingMax\":1800,\"RecoverableErrorStopRetryAfterThrottlingMax\":false,\"ApplyErrorDeletePolicy\":\"IGNORE_RECORD\",\"ApplyErrorInsertPolicy\":\"LOG_ERROR\",\"ApplyErrorUpdatePolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationPolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationCount\":0,\"ApplyErrorFailOnTruncationDdl\":false,\"FullLoadIgnoreConflicts\":true,\"FailOnTransactionConsistencyBreached\":false,\"FailOnNoTablesCaptured\":false},\"ChangeProcessingTuning\":{\"BatchApplyPreserveTransaction\":true,\"BatchApplyTimeoutMin\":1,\"BatchApplyTimeoutMax\":30,\"BatchApplyMemoryLimit\":500,\"BatchSplitSize\":0,\"MinTransactionSize\":1000,\"CommitTimeout\":1,\"MemoryLimitTotal\":1024,\"MemoryKeepTime\":60,\"StatementCacheSize\":50},\"PostProcessingRules\":null,\"CharacterSetSettings\":null,\"LoopbackPreventionSettings\":null,\"BeforeImageSettings\":null}",
+        "Status": "starting",
+        "ReplicationTaskCreationDate": "2020-09-23T22:01:51.220000+09:00",
+        "ReplicationTaskStartDate": "2020-09-23T22:02:26.755000+09:00",
+        "ReplicationTaskArn": "arn:aws:dms:ap-northeast-2:664695030410:task:LOS2J6RB3WE6WDBXCNUCPGKXGOHE2HFG2TWR33I"
+    }
+}
+{
+    "ReplicationTask": {
+        "ReplicationTaskIdentifier": "orders40-79-task",
+        "SourceEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:RSICUHNZHGR3LEM774Q2HHPLIPDAG732YIRLEWQ",
+        "TargetEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:HUDRZ3O6WFZOJ3KFEIJLUY6J6F7NWXKJACIKGHQ",
+        "ReplicationInstanceArn": "arn:aws:dms:ap-northeast-2:664695030410:rep:4UO7VATLK73OPWDGMFPW3R6SDKBCZH5OYRIDFEI",
+        "MigrationType": "full-load",
+        "TableMappings": "{\n    \"rules\": [\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"1\",\n            \"rule-name\": \"1\",\n            \"rule-target\": \"table\",\n            \"object-locator\": {\n                \"schema-name\": \"%\",\n                \"table-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"2\",\n            \"rule-name\": \"2\",\n            \"rule-target\": \"schema\",\n            \"object-locator\": {\n                \"schema-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"3\",\n            \"rule-name\": \"3\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS03%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"4\",\n            \"rule-name\": \"4\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS02%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"5\",\n            \"rule-name\": \"5\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS01%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"6\",\n            \"rule-name\": \"6\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS00%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        }\n    ]\n}\n",
+        "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":false,\"LobChunkSize\":64,\"LimitedSizeLobMode\":true,\"LobMaxSize\":32,\"InlineLobMaxSize\":0,\"LoadMaxFileSize\":0,\"ParallelLoadThreads\":0,\"ParallelLoadBufferSize\":0,\"BatchApplyEnabled\":false,\"TaskRecoveryTableEnabled\":false,\"ParallelLoadQueuesPerThread\":0,\"ParallelApplyThreads\":0,\"ParallelApplyBufferSize\":0,\"ParallelApplyQueuesPerThread\":0},\"FullLoadSettings\":{\"TargetTablePrepMode\":\"TRUNCATE_BEFORE_LOAD\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"MaxFullLoadSubTasks\":48,\"TransactionConsistencyTimeout\":600,\"CommitRate\":50000},\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Id\":\"TRANSFORMATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_UNLOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"IO\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_LOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"PERFORMANCE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_CAPTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SORTER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"REST_SERVER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"VALIDATOR_EXT\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_APPLY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TASK_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TABLES_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"METADATA_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_FACTORY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMON\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"ADDONS\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"DATA_STRUCTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMUNICATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_TRANSFER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"}],\"CloudWatchLogGroup\":\"dms-tasks-onprem-ri\",\"CloudWatchLogStream\":\"dms-task-HWGUM3UOHUGXESVBKDVMMUJN35Z2ZD5LLJZUCLA\"},\"ControlTablesSettings\":{\"historyTimeslotInMinutes\":5,\"ControlSchema\":\"\",\"HistoryTimeslotInMinutes\":5,\"HistoryTableEnabled\":false,\"SuspendedTablesTableEnabled\":false,\"StatusTableEnabled\":false},\"StreamBufferSettings\":{\"StreamBufferCount\":3,\"StreamBufferSizeInMB\":8,\"CtrlStreamBufferSizeInMB\":5},\"ChangeProcessingDdlHandlingPolicy\":{\"HandleSourceTableDropped\":true,\"HandleSourceTableTruncated\":true,\"HandleSourceTableAltered\":true},\"ErrorBehavior\":{\"DataErrorPolicy\":\"LOG_ERROR\",\"DataTruncationErrorPolicy\":\"LOG_ERROR\",\"DataErrorEscalationPolicy\":\"SUSPEND_TABLE\",\"DataErrorEscalationCount\":0,\"TableErrorPolicy\":\"SUSPEND_TABLE\",\"TableErrorEscalationPolicy\":\"STOP_TASK\",\"TableErrorEscalationCount\":0,\"RecoverableErrorCount\":-1,\"RecoverableErrorInterval\":5,\"RecoverableErrorThrottling\":true,\"RecoverableErrorThrottlingMax\":1800,\"RecoverableErrorStopRetryAfterThrottlingMax\":false,\"ApplyErrorDeletePolicy\":\"IGNORE_RECORD\",\"ApplyErrorInsertPolicy\":\"LOG_ERROR\",\"ApplyErrorUpdatePolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationPolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationCount\":0,\"ApplyErrorFailOnTruncationDdl\":false,\"FullLoadIgnoreConflicts\":true,\"FailOnTransactionConsistencyBreached\":false,\"FailOnNoTablesCaptured\":false},\"ChangeProcessingTuning\":{\"BatchApplyPreserveTransaction\":true,\"BatchApplyTimeoutMin\":1,\"BatchApplyTimeoutMax\":30,\"BatchApplyMemoryLimit\":500,\"BatchSplitSize\":0,\"MinTransactionSize\":1000,\"CommitTimeout\":1,\"MemoryLimitTotal\":1024,\"MemoryKeepTime\":60,\"StatementCacheSize\":50},\"PostProcessingRules\":null,\"CharacterSetSettings\":null,\"LoopbackPreventionSettings\":null,\"BeforeImageSettings\":null}",
+        "Status": "starting",
+        "ReplicationTaskCreationDate": "2020-09-23T22:01:51.287000+09:00",
+        "ReplicationTaskStartDate": "2020-09-23T22:02:26.867000+09:00",
+        "ReplicationTaskArn": "arn:aws:dms:ap-northeast-2:664695030410:task:HWGUM3UOHUGXESVBKDVMMUJN35Z2ZD5LLJZUCLA"
+    }
+}
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-80-100.sh: line 16: [: =: unary operator expected
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+ready
+BREAK
+{
+    "ReplicationTask": {
+        "ReplicationTaskIdentifier": "orders80-100-task",
+        "SourceEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:RSICUHNZHGR3LEM774Q2HHPLIPDAG732YIRLEWQ",
+        "TargetEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:HUDRZ3O6WFZOJ3KFEIJLUY6J6F7NWXKJACIKGHQ",
+        "ReplicationInstanceArn": "arn:aws:dms:ap-northeast-2:664695030410:rep:4UO7VATLK73OPWDGMFPW3R6SDKBCZH5OYRIDFEI",
+        "MigrationType": "full-load",
+        "TableMappings": "{\n    \"rules\": [\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"1\",\n            \"rule-name\": \"1\",\n            \"rule-target\": \"table\",\n            \"object-locator\": {\n                \"schema-name\": \"%\",\n                \"table-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"2\",\n            \"rule-name\": \"2\",\n            \"rule-target\": \"schema\",\n            \"object-locator\": {\n                \"schema-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"3\",\n            \"rule-name\": \"3\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS100\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"4\",\n            \"rule-name\": \"4\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS09%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"5\",\n            \"rule-name\": \"5\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS08%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        }\n    ]\n}\n",
+        "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":false,\"LobChunkSize\":64,\"LimitedSizeLobMode\":true,\"LobMaxSize\":32,\"InlineLobMaxSize\":0,\"LoadMaxFileSize\":0,\"ParallelLoadThreads\":0,\"ParallelLoadBufferSize\":0,\"BatchApplyEnabled\":false,\"TaskRecoveryTableEnabled\":false,\"ParallelLoadQueuesPerThread\":0,\"ParallelApplyThreads\":0,\"ParallelApplyBufferSize\":0,\"ParallelApplyQueuesPerThread\":0},\"FullLoadSettings\":{\"TargetTablePrepMode\":\"TRUNCATE_BEFORE_LOAD\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"MaxFullLoadSubTasks\":48,\"TransactionConsistencyTimeout\":600,\"CommitRate\":50000},\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Id\":\"TRANSFORMATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_UNLOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"IO\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_LOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"PERFORMANCE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_CAPTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SORTER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"REST_SERVER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"VALIDATOR_EXT\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_APPLY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TASK_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TABLES_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"METADATA_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_FACTORY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMON\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"ADDONS\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"DATA_STRUCTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMUNICATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_TRANSFER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"}],\"CloudWatchLogGroup\":\"dms-tasks-onprem-ri\",\"CloudWatchLogStream\":\"dms-task-TTWOVLDBGHIQAZCQC2UYPOA7H52X54JP4HQ3J3I\"},\"ControlTablesSettings\":{\"historyTimeslotInMinutes\":5,\"ControlSchema\":\"\",\"HistoryTimeslotInMinutes\":5,\"HistoryTableEnabled\":false,\"SuspendedTablesTableEnabled\":false,\"StatusTableEnabled\":false},\"StreamBufferSettings\":{\"StreamBufferCount\":3,\"StreamBufferSizeInMB\":8,\"CtrlStreamBufferSizeInMB\":5},\"ChangeProcessingDdlHandlingPolicy\":{\"HandleSourceTableDropped\":true,\"HandleSourceTableTruncated\":true,\"HandleSourceTableAltered\":true},\"ErrorBehavior\":{\"DataErrorPolicy\":\"LOG_ERROR\",\"DataTruncationErrorPolicy\":\"LOG_ERROR\",\"DataErrorEscalationPolicy\":\"SUSPEND_TABLE\",\"DataErrorEscalationCount\":0,\"TableErrorPolicy\":\"SUSPEND_TABLE\",\"TableErrorEscalationPolicy\":\"STOP_TASK\",\"TableErrorEscalationCount\":0,\"RecoverableErrorCount\":-1,\"RecoverableErrorInterval\":5,\"RecoverableErrorThrottling\":true,\"RecoverableErrorThrottlingMax\":1800,\"RecoverableErrorStopRetryAfterThrottlingMax\":false,\"ApplyErrorDeletePolicy\":\"IGNORE_RECORD\",\"ApplyErrorInsertPolicy\":\"LOG_ERROR\",\"ApplyErrorUpdatePolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationPolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationCount\":0,\"ApplyErrorFailOnTruncationDdl\":false,\"FullLoadIgnoreConflicts\":true,\"FailOnTransactionConsistencyBreached\":false,\"FailOnNoTablesCaptured\":false},\"ChangeProcessingTuning\":{\"BatchApplyPreserveTransaction\":true,\"BatchApplyTimeoutMin\":1,\"BatchApplyTimeoutMax\":30,\"BatchApplyMemoryLimit\":500,\"BatchSplitSize\":0,\"MinTransactionSize\":1000,\"CommitTimeout\":1,\"MemoryLimitTotal\":1024,\"MemoryKeepTime\":60,\"StatementCacheSize\":50},\"PostProcessingRules\":null,\"CharacterSetSettings\":null,\"LoopbackPreventionSettings\":null,\"BeforeImageSettings\":null}",
+        "Status": "starting",
+        "ReplicationTaskCreationDate": "2020-09-23T22:05:57.541000+09:00",
+        "ReplicationTaskStartDate": "2020-09-23T22:06:33.978000+09:00",
+        "ReplicationTaskArn": "arn:aws:dms:ap-northeast-2:664695030410:task:TTWOVLDBGHIQAZCQC2UYPOA7H52X54JP4HQ3J3I"
+    }
+}
+ready
+BREAK
+ready
+BREAK
+{
+    "ReplicationTask": {
+        "ReplicationTaskIdentifier": "orders01-39-task",
+        "SourceEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:RSICUHNZHGR3LEM774Q2HHPLIPDAG732YIRLEWQ",
+        "TargetEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:HUDRZ3O6WFZOJ3KFEIJLUY6J6F7NWXKJACIKGHQ",
+        "ReplicationInstanceArn": "arn:aws:dms:ap-northeast-2:664695030410:rep:4UO7VATLK73OPWDGMFPW3R6SDKBCZH5OYRIDFEI",
+        "MigrationType": "full-load",
+        "TableMappings": "{\n    \"rules\": [\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"1\",\n            \"rule-name\": \"1\",\n            \"rule-target\": \"table\",\n            \"object-locator\": {\n                \"schema-name\": \"%\",\n                \"table-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"2\",\n            \"rule-name\": \"2\",\n            \"rule-target\": \"schema\",\n            \"object-locator\": {\n                \"schema-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"3\",\n            \"rule-name\": \"3\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS07%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"4\",\n            \"rule-name\": \"4\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS06%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"5\",\n            \"rule-name\": \"5\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS05%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"6\",\n            \"rule-name\": \"6\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS04%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        }\n    ]\n}\n",
+        "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":false,\"LobChunkSize\":64,\"LimitedSizeLobMode\":true,\"LobMaxSize\":32,\"InlineLobMaxSize\":0,\"LoadMaxFileSize\":0,\"ParallelLoadThreads\":0,\"ParallelLoadBufferSize\":0,\"BatchApplyEnabled\":false,\"TaskRecoveryTableEnabled\":false,\"ParallelLoadQueuesPerThread\":0,\"ParallelApplyThreads\":0,\"ParallelApplyBufferSize\":0,\"ParallelApplyQueuesPerThread\":0},\"FullLoadSettings\":{\"TargetTablePrepMode\":\"TRUNCATE_BEFORE_LOAD\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"MaxFullLoadSubTasks\":48,\"TransactionConsistencyTimeout\":600,\"CommitRate\":50000},\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Id\":\"TRANSFORMATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_UNLOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"IO\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_LOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"PERFORMANCE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_CAPTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SORTER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"REST_SERVER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"VALIDATOR_EXT\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_APPLY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TASK_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TABLES_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"METADATA_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_FACTORY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMON\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"ADDONS\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"DATA_STRUCTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMUNICATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_TRANSFER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"}],\"CloudWatchLogGroup\":\"dms-tasks-onprem-ri\",\"CloudWatchLogStream\":\"dms-task-I5VT4LBT25PZRSSBJQ2HWWJMGMHN6BW7BAMU66I\"},\"ControlTablesSettings\":{\"historyTimeslotInMinutes\":5,\"ControlSchema\":\"\",\"HistoryTimeslotInMinutes\":5,\"HistoryTableEnabled\":false,\"SuspendedTablesTableEnabled\":false,\"StatusTableEnabled\":false},\"StreamBufferSettings\":{\"StreamBufferCount\":3,\"StreamBufferSizeInMB\":8,\"CtrlStreamBufferSizeInMB\":5},\"ChangeProcessingDdlHandlingPolicy\":{\"HandleSourceTableDropped\":true,\"HandleSourceTableTruncated\":true,\"HandleSourceTableAltered\":true},\"ErrorBehavior\":{\"DataErrorPolicy\":\"LOG_ERROR\",\"DataTruncationErrorPolicy\":\"LOG_ERROR\",\"DataErrorEscalationPolicy\":\"SUSPEND_TABLE\",\"DataErrorEscalationCount\":0,\"TableErrorPolicy\":\"SUSPEND_TABLE\",\"TableErrorEscalationPolicy\":\"STOP_TASK\",\"TableErrorEscalationCount\":0,\"RecoverableErrorCount\":-1,\"RecoverableErrorInterval\":5,\"RecoverableErrorThrottling\":true,\"RecoverableErrorThrottlingMax\":1800,\"RecoverableErrorStopRetryAfterThrottlingMax\":false,\"ApplyErrorDeletePolicy\":\"IGNORE_RECORD\",\"ApplyErrorInsertPolicy\":\"LOG_ERROR\",\"ApplyErrorUpdatePolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationPolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationCount\":0,\"ApplyErrorFailOnTruncationDdl\":false,\"FullLoadIgnoreConflicts\":true,\"FailOnTransactionConsistencyBreached\":false,\"FailOnNoTablesCaptured\":false},\"ChangeProcessingTuning\":{\"BatchApplyPreserveTransaction\":true,\"BatchApplyTimeoutMin\":1,\"BatchApplyTimeoutMax\":30,\"BatchApplyMemoryLimit\":500,\"BatchSplitSize\":0,\"MinTransactionSize\":1000,\"CommitTimeout\":1,\"MemoryLimitTotal\":1024,\"MemoryKeepTime\":60,\"StatementCacheSize\":50},\"PostProcessingRules\":null,\"CharacterSetSettings\":null,\"LoopbackPreventionSettings\":null,\"BeforeImageSettings\":null}",
+        "Status": "starting",
+        "ReplicationTaskCreationDate": "2020-09-23T22:05:57.513000+09:00",
+        "ReplicationTaskStartDate": "2020-09-23T22:06:38.938000+09:00",
+        "ReplicationTaskArn": "arn:aws:dms:ap-northeast-2:664695030410:task:I5VT4LBT25PZRSSBJQ2HWWJMGMHN6BW7BAMU66I"
+    }
+}
+{
+    "ReplicationTask": {
+        "ReplicationTaskIdentifier": "orders40-79-task",
+        "SourceEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:RSICUHNZHGR3LEM774Q2HHPLIPDAG732YIRLEWQ",
+        "TargetEndpointArn": "arn:aws:dms:ap-northeast-2:664695030410:endpoint:HUDRZ3O6WFZOJ3KFEIJLUY6J6F7NWXKJACIKGHQ",
+        "ReplicationInstanceArn": "arn:aws:dms:ap-northeast-2:664695030410:rep:4UO7VATLK73OPWDGMFPW3R6SDKBCZH5OYRIDFEI",
+        "MigrationType": "full-load",
+        "TableMappings": "{\n    \"rules\": [\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"1\",\n            \"rule-name\": \"1\",\n            \"rule-target\": \"table\",\n            \"object-locator\": {\n                \"schema-name\": \"%\",\n                \"table-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"transformation\",\n            \"rule-id\": \"2\",\n            \"rule-name\": \"2\",\n            \"rule-target\": \"schema\",\n            \"object-locator\": {\n                \"schema-name\": \"%\"\n            },\n            \"rule-action\": \"convert-lowercase\",\n            \"value\": null,\n            \"old-value\": null\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"3\",\n            \"rule-name\": \"3\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS03%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"4\",\n            \"rule-name\": \"4\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS02%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"5\",\n            \"rule-name\": \"5\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS01%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        },\n        {\n            \"rule-type\": \"selection\",\n            \"rule-id\": \"6\",\n            \"rule-name\": \"6\",\n            \"object-locator\": {\n                \"schema-name\": \"SOE2\",\n                \"table-name\": \"ORDERS00%\"\n            },\n            \"rule-action\": \"include\",\n            \"filters\": []\n        }\n    ]\n}\n",
+        "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":false,\"LobChunkSize\":64,\"LimitedSizeLobMode\":true,\"LobMaxSize\":32,\"InlineLobMaxSize\":0,\"LoadMaxFileSize\":0,\"ParallelLoadThreads\":0,\"ParallelLoadBufferSize\":0,\"BatchApplyEnabled\":false,\"TaskRecoveryTableEnabled\":false,\"ParallelLoadQueuesPerThread\":0,\"ParallelApplyThreads\":0,\"ParallelApplyBufferSize\":0,\"ParallelApplyQueuesPerThread\":0},\"FullLoadSettings\":{\"TargetTablePrepMode\":\"TRUNCATE_BEFORE_LOAD\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"MaxFullLoadSubTasks\":48,\"TransactionConsistencyTimeout\":600,\"CommitRate\":50000},\"Logging\":{\"EnableLogging\":true,\"LogComponents\":[{\"Id\":\"TRANSFORMATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_UNLOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"IO\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_LOAD\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"PERFORMANCE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SOURCE_CAPTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"SORTER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"REST_SERVER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"VALIDATOR_EXT\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TARGET_APPLY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TASK_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"TABLES_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"METADATA_MANAGER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_FACTORY\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMON\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"ADDONS\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"DATA_STRUCTURE\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"COMMUNICATION\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"},{\"Id\":\"FILE_TRANSFER\",\"Severity\":\"LOGGER_SEVERITY_DEFAULT\"}],\"CloudWatchLogGroup\":\"dms-tasks-onprem-ri\",\"CloudWatchLogStream\":\"dms-task-7SO7IPSH3LLFS6WIANALSHU6VYY4PSLYW5LXZKI\"},\"ControlTablesSettings\":{\"historyTimeslotInMinutes\":5,\"ControlSchema\":\"\",\"HistoryTimeslotInMinutes\":5,\"HistoryTableEnabled\":false,\"SuspendedTablesTableEnabled\":false,\"StatusTableEnabled\":false},\"StreamBufferSettings\":{\"StreamBufferCount\":3,\"StreamBufferSizeInMB\":8,\"CtrlStreamBufferSizeInMB\":5},\"ChangeProcessingDdlHandlingPolicy\":{\"HandleSourceTableDropped\":true,\"HandleSourceTableTruncated\":true,\"HandleSourceTableAltered\":true},\"ErrorBehavior\":{\"DataErrorPolicy\":\"LOG_ERROR\",\"DataTruncationErrorPolicy\":\"LOG_ERROR\",\"DataErrorEscalationPolicy\":\"SUSPEND_TABLE\",\"DataErrorEscalationCount\":0,\"TableErrorPolicy\":\"SUSPEND_TABLE\",\"TableErrorEscalationPolicy\":\"STOP_TASK\",\"TableErrorEscalationCount\":0,\"RecoverableErrorCount\":-1,\"RecoverableErrorInterval\":5,\"RecoverableErrorThrottling\":true,\"RecoverableErrorThrottlingMax\":1800,\"RecoverableErrorStopRetryAfterThrottlingMax\":false,\"ApplyErrorDeletePolicy\":\"IGNORE_RECORD\",\"ApplyErrorInsertPolicy\":\"LOG_ERROR\",\"ApplyErrorUpdatePolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationPolicy\":\"LOG_ERROR\",\"ApplyErrorEscalationCount\":0,\"ApplyErrorFailOnTruncationDdl\":false,\"FullLoadIgnoreConflicts\":true,\"FailOnTransactionConsistencyBreached\":false,\"FailOnNoTablesCaptured\":false},\"ChangeProcessingTuning\":{\"BatchApplyPreserveTransaction\":true,\"BatchApplyTimeoutMin\":1,\"BatchApplyTimeoutMax\":30,\"BatchApplyMemoryLimit\":500,\"BatchSplitSize\":0,\"MinTransactionSize\":1000,\"CommitTimeout\":1,\"MemoryLimitTotal\":1024,\"MemoryKeepTime\":60,\"StatementCacheSize\":50},\"PostProcessingRules\":null,\"CharacterSetSettings\":null,\"LoopbackPreventionSettings\":null,\"BeforeImageSettings\":null}",
+        "Status": "starting",
+        "ReplicationTaskCreationDate": "2020-09-23T22:05:58.035000+09:00",
+        "ReplicationTaskStartDate": "2020-09-23T22:06:39.406000+09:00",
+        "ReplicationTaskArn": "arn:aws:dms:ap-northeast-2:664695030410:task:7SO7IPSH3LLFS6WIANALSHU6VYY4PSLYW5LXZKI"
+    }
+}
