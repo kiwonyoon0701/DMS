@@ -1,0 +1,54 @@
+
+Error parsing parameter '--table-mappings': Unable to load paramfile file://orders0100.json: [Errno 2] No such file or directory: 'orders0100.json'
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-with-argument.sh: line 17: [: =: unary operator expected
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-with-argument.sh: line 17: [: =: unary operator expected
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-with-argument.sh: line 17: [: =: unary operator expected
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+
+An error occurred (InvalidParameterCombinationException) when calling the DescribeReplicationTasks operation: Invalid value '' for filter replication-task-arn
+
+./Create-and-Start-Task-with-argument.sh: line 17: [: =: unary operator expected
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
+creating
