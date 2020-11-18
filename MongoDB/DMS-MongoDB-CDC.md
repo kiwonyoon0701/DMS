@@ -1,4 +1,4 @@
-## Enable OPLOG
+## CDC MongoDB to DocumentDB
 
 **Enable OPLOG**
 
