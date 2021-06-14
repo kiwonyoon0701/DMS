@@ -199,4 +199,14 @@ commit;
 
 <kbd> ![GitHub Logo](images/11.png) </kbd
 
+### S3 Source End point
+
+<kbd> ![GitHub Logo](images/12.png) </kbd
+
+**Task status and RDS status**
+
+<kbd> ![GitHub Logo](images/13.png) </kbd
+
+<kbd> ![GitHub Logo](images/14.png) </kbd
+
 <kbd> ![GitHub Logo](images/0.png) </kbd
