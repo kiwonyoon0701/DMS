@@ -167,46 +167,12 @@
 }
 ```
 
-**S3 Bucket Destination**
+**TASK status**
 
-<kbd> ![GitHub Logo](images/2.png) </kbd
+<kbd> ![GitHub Logo](images/6.png) </kbd>
 
-## S3 to RDS Oracle
+**CW log**
 
-### S3 Source Endpoint
+<kbd> ![GitHub Logo](images/7.png) </kbd>
 
-<kbd> ![GitHub Logo](images/3.png) </kbd>
-
-```
-{
-    "TableCount": "1",
-    "Tables": [
-        {
-            "TableName": "DUMMY",
-            "TablePath": "OSHOP/DUMMY/",
-            "TableOwner": "OSHOP",
-            "TableColumns": [
-                {
-                    "ColumnName": "Id",
-                    "ColumnType": "INT8",
-                    "ColumnNullable": "false",
-                    "ColumnIsPk": "true"
-                },
-                {
-                    "ColumnName": "Id1",
-                    "ColumnType": "INT8",
-                    "ColumnNullable": "false",
-                    "ColumnIsPk": "true"
-                },
-                {
-                    "ColumnName": "Id2",
-                    "ColumnType": "INT8",
-                    "ColumnNullable": "false",
-                    "ColumnIsPk": "true"
-                },
-            ],
-            "TableColumnsTotal": "3"
-        }
-    ]
-}
-```
+<kbd> ![GitHub Logo](images/0.png) </kbd
