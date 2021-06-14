@@ -4,6 +4,10 @@
 
 ### S3 Target Endpoint
 
+**configuration**
+
+<kbd> ![GitHub Logo](images/1.png) </kbd>
+
 **Table Structure**
 
 ```
@@ -39,6 +43,3 @@
     ]
 }
 ```
-
-**configuration**
-<kbd> ![GitHub Logo](images/1.png) </kbd>
