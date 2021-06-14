@@ -181,13 +181,13 @@
 
 ### S3 Target end point
 
-<kbd> ![GitHub Logo](images/8.png) </kbd
+<kbd> ![GitHub Logo](images/8.png) </kbd>
 
 **Task Status and CSV file**
 
-<kbd> ![GitHub Logo](images/9.png) </kbd
+<kbd> ![GitHub Logo](images/9.png) </kbd>
 
-<kbd> ![GitHub Logo](images/10.png) </kbd
+<kbd> ![GitHub Logo](images/10.png) </kbd>
 
 **Update 2 rows**
 
@@ -197,16 +197,62 @@ SQL> update dummy set ID1=22,ID2=22 where ID=2;
 commit;
 ```
 
-<kbd> ![GitHub Logo](images/11.png) </kbd
+<kbd> ![GitHub Logo](images/11.png) </kbd>
 
 ### S3 Source End point
 
-<kbd> ![GitHub Logo](images/12.png) </kbd
+<kbd> ![GitHub Logo](images/12.png) </kbd>
 
 **Task status and RDS status**
 
-<kbd> ![GitHub Logo](images/13.png) </kbd
+`just initial data loaded and no changed data applied`
 
-<kbd> ![GitHub Logo](images/14.png) </kbd
+<kbd> ![GitHub Logo](images/13.png) </kbd>
 
-<kbd> ![GitHub Logo](images/0.png) </kbd
+<kbd> ![GitHub Logo](images/14.png) </kbd>
+
+**update rows**
+
+```
+SQL> update dummy set ID1=33,ID2=33 where ID=3;
+SQL> update dummy set ID1=44,ID2=44 where ID=4;
+commit;
+```
+
+**Check S3 CDC bucket**
+
+<kbd> ![GitHub Logo](images/15.png) </kbd>
+
+**Check Task status and RDS data**
+
+<kbd> ![GitHub Logo](images/16.png) </kbd>
+
+<kbd> ![GitHub Logo](images/17.png) </kbd>
+
+```
+Must setup CDC setup frmo S3 to RDS before starting CDC
+위의 결과에서 알 수 있듯이 Oracle -> s3 -> RDS로 CDC를 걸기 위해선 TX가 발생 전에 TASK가 동작하고 있어야 함.
+Task 생성 후부터 TX에 대한 반영이 됨
+```
+
+**Insert and delete some data**
+
+```
+SQL> insert into dummy values (10,10,10);
+SQL> insert into dummy values (11,11,11);
+SQL> commit;
+```
+
+<kbd> ![GitHub Logo](images/18.png) </kbd>
+
+<kbd> ![GitHub Logo](images/19.png) </kbd>
+
+```
+SQL> delete dummy where id=5;
+SQL> delete dummy where id=7;
+SQL> commit;
+```
+
+<kbd> ![GitHub Logo](images/20.png) </kbd>
+
+<kbd> ![GitHub Logo](images/21.png) </kbd>
