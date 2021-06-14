@@ -43,9 +43,55 @@
 }
 ```
 
-**Configuration Detail**
+**S3 Target Endpoint Detail**
 
 <kbd> ![GitHub Logo](images/1.png) </kbd>
+
+**Task configuration**
+
+<kbd> ![GitHub Logo](images/2.png) </kbd>
+
+**Mapping Rules**
+
+```
+{
+    "rules": [
+        {
+            "rule-type": "transformation",
+            "rule-id": "1",
+            "rule-name": "1",
+            "rule-target": "schema",
+            "object-locator": {
+                "schema-name": "OSHOP"
+            },
+            "rule-action": "rename",
+            "value": "OSHOP",
+            "old-value": null
+        },
+        {
+            "rule-type": "selection",
+            "rule-id": "2",
+            "rule-name": "2",
+            "object-locator": {
+                "schema-name": "OSHOP",
+                "table-name": "%"
+            },
+            "rule-action": "include",
+            "filters": []
+        }
+    ]
+}
+```
+
+**S3 csv file**
+
+<kbd> ![GitHub Logo](images/3.png) </kbd>
+
+## S3 to RDS Target
+
+### S3 Source Endpoint
+
+<kbd> ![GitHub Logo](images/4.png) </kbd>
 
 **Table Structure**
 
@@ -55,7 +101,7 @@
     "Tables": [
         {
             "TableName": "DUMMY",
-            "TablePath": "OSHOP/employee/",
+            "TablePath": "OSHOP/DUMMY/",
             "TableOwner": "OSHOP",
             "TableColumns": [
                 {
@@ -75,13 +121,17 @@
                     "ColumnType": "INT8",
                     "ColumnNullable": "false",
                     "ColumnIsPk": "true"
-                },
+                }
             ],
             "TableColumnsTotal": "3"
         }
     ]
 }
 ```
+
+### RDS Target Endpoint
+
+<kbd> ![GitHub Logo](images/5.png) </kbd>
 
 ### Task Setup
 
