@@ -175,4 +175,12 @@
 
 <kbd> ![GitHub Logo](images/7.png) </kbd>
 
+# FULL Load + CDC Oracle -> s3 -> RDS
+
+## Oracle to S3
+
+### S3 Target end point
+
+<kbd> ![GitHub Logo](images/8.png) </kbd
+
 <kbd> ![GitHub Logo](images/0.png) </kbd
