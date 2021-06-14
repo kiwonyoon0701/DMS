@@ -1,5 +1,7 @@
 # Just Full Loading Oracle -> s3 -> RDS
 
+## Oracle to S3
+
 ### Oracle Source Endpoint
 
 ### S3 Target Endpoint
@@ -118,3 +120,43 @@
 **S3 Bucket Destination**
 
 <kbd> ![GitHub Logo](images/2.png) </kbd
+
+## S3 to RDS Oracle
+
+### S3 Source Endpoint
+
+<kbd> ![GitHub Logo](images/3.png) </kbd>
+
+```
+{
+    "TableCount": "1",
+    "Tables": [
+        {
+            "TableName": "DUMMY",
+            "TablePath": "OSHOP/DUMMY/",
+            "TableOwner": "OSHOP",
+            "TableColumns": [
+                {
+                    "ColumnName": "Id",
+                    "ColumnType": "INT8",
+                    "ColumnNullable": "false",
+                    "ColumnIsPk": "true"
+                },
+                {
+                    "ColumnName": "Id1",
+                    "ColumnType": "INT8",
+                    "ColumnNullable": "false",
+                    "ColumnIsPk": "true"
+                },
+                {
+                    "ColumnName": "Id2",
+                    "ColumnType": "INT8",
+                    "ColumnNullable": "false",
+                    "ColumnIsPk": "true"
+                },
+            ],
+            "TableColumnsTotal": "3"
+        }
+    ]
+}
+```
