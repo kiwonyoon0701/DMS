@@ -183,4 +183,20 @@
 
 <kbd> ![GitHub Logo](images/8.png) </kbd
 
+**Task Status and CSV file**
+
+<kbd> ![GitHub Logo](images/9.png) </kbd
+
+<kbd> ![GitHub Logo](images/10.png) </kbd
+
+**Update 2 rows**
+
+```
+SQL> update dummy set ID1=11,ID2=11 where ID=1;
+SQL> update dummy set ID1=22,ID2=22 where ID=2;
+commit;
+```
+
+<kbd> ![GitHub Logo](images/11.png) </kbd
+
 <kbd> ![GitHub Logo](images/0.png) </kbd
