@@ -2,6 +2,8 @@
 
 ### Oracle Source Endpoint
 
+### S3 Target Endpoint
+
 **Table Structure**
 
 ```
@@ -37,3 +39,6 @@
     ]
 }
 ```
+
+**configuration**
+<kbd> ![GitHub Logo](images/1.png) </kbd>
