@@ -338,7 +338,17 @@ useLogMinerReader=N;useBfile=Y;asm_user=asmuser;asm_server=172.31.14.4:1522/+ASM
 }
 ```
 
+**CDC configuration in ASM using asmuser**
+
 ```
+
+connect sysasm
+SQL> create user asmuser identified by asmuser;
+User created.
+
+SQL> grant sysasm to asmuser;
+Grant succeeded.
+
 useLogMinerReader=N;useBfile=Y;asm_user=asmuser;asm_server=172.31.14.4:1522/+ASM;
 
 ```
