@@ -1,4 +1,4 @@
-**archivelog, minimum supplemental log**
+**Enable archivelog, minimum supplemental log**
 
 ```
 archive log list;
@@ -6,6 +6,8 @@ ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
 
 SELECT supplemental_log_data_min FROM v$database;
 ```
+
+**Create DMS_USER and grant privs**
 
 ```
 create user dms_user identified by <PASSWORD> default tablespace users temporary tablespace temp quota unlimited on users;
