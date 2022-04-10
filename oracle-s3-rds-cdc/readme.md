@@ -1,4 +1,4 @@
-# Just Full Loading Oracle -> s3 -> RDS
+# Oracle -> s3 -> RDS :: FL + CDC
 
 
 
