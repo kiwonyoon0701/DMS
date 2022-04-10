@@ -1,5 +1,17 @@
 # Just Full Loading Oracle -> s3 -> RDS
 
+
+
+```
+Source Oracle을 S3로 이관 하고 다시 이 데이터를 RDS로 적제하는 Scenario 
+
+Full Load Only 와 FL + CDC 시나리오 모두 존재
+
+Source Oracle => S3 => RDS Oracle로 정상적으로 FL + CDC 반영됨을 확인
+```
+
+
+
 ## Oracle to S3
 
 ### Oracle Source Endpoint
