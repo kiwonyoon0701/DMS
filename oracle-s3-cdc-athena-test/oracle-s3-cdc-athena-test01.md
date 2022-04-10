@@ -140,7 +140,15 @@ Service access role ARN : arn:aws:iam::156227767883:role/oracle-to-s3-cdc-athena
 Bucket Name : oracle-to-s3-cdc-athena-kiwony-20220410
 Extra connection attributes
  : PreserveTransactions=true;CdcPath=ChangedData;
+
 ```
+
+```
+PreserveTransactions=true일 경우 cdcPath는 mandatory임
+SYSTEM ERROR MESSAGE:Feature PreserveTransactions requires cdcPath setting
+```
+
+
 
 ![image-20220410191016000](images/image-20220410191016000.png)
 
