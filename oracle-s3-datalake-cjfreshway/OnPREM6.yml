@@ -303,7 +303,7 @@ Resources:
       NetworkInterfaces:
         - NetworkInterfaceId: !Ref OracleNetworkInterface
           DeviceIndex: 0
-      ImageId: ami-06af62486aa367dcc
+      ImageId: ami-015c15149c2030eed
       Tags:
         - Key: Name
           Value: !Sub "${AWS::StackName}-OracleServer"
@@ -347,7 +347,7 @@ Resources:
       NetworkInterfaces:
         - NetworkInterfaceId: !Ref WindowsNetworkInterface
           DeviceIndex: 0
-      ImageId: ami-027c28df86c737de8
+      ImageId: ami-0b10bfeebd172c536
       Tags:
         - Key: Name
           Value: !Sub "${AWS::StackName}-WindowsServer"
@@ -395,3 +395,4 @@ Outputs:
     Value: !GetAtt WindowsOnPremInstance.PublicIp
     Export:
       Name: !Sub "${AWS::StackName}-WindowsServerPublicIp"
+
