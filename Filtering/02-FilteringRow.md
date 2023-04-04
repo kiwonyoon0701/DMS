@@ -285,6 +285,70 @@ mysql> select * from my_table;
 
 ```
 
+
+
+## AND / OR Condition 3
+
+![image-20230404145159846](images/image-20230404145159846.png)
+
+```
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "587451775",
+            "rule-name": "587451775",
+            "object-locator": {
+                "schema-name": "demo",
+                "table-name": "my_table"
+            },
+            "rule-action": "include",
+            "filters": [
+                {
+                    "filter-type": "source",
+                    "column-name": "age",
+                    "filter-conditions": [
+                        {
+                            "filter-operator": "between",
+                            "start-value": "30",
+                            "end-value": "36"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+
+```
+mysql> select count(*) from my_table;
++----------+
+| count(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from my_table;
++----+-------------+-----+-------------------------+--------------+---------+
+| id | name        | age | email                   | created_date | dept_nm |
++----+-------------+-----+-------------------------+--------------+---------+
+|  1 | John Doe    |  30 | john.doe@example.com    | 2022-04-01   | IT      |
+|  3 | Bob Smith   |  35 | bob.smith@example.com   | 2022-04-03   | HR      |
+|  4 | Alice Smith |  32 | alice.smith@example.com | 2022-04-04   | IT      |
+|  8 | Daniel Park |  33 | daniel.park@example.com | 2022-04-08   | IT      |
+| 10 | Kevin Lee   |  31 | kevin.lee@example.com   | 2022-04-10   | FIN     |
+| 11 | Grace Park  |  36 | grace.park@example.com  | 2022-04-11   | FIN     |
++----+-------------+-----+-------------------------+--------------+---------+
+6 rows in set (0.00 sec)
+
+```
+
+
+
 ---
 
 
