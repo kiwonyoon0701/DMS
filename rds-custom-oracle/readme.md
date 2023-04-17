@@ -1,203 +1,178 @@
 
 
-## Source Database 사전 작업
+## Appendix-1 - EC2 Instance에 Session Manager를 사용하여 Terminal 접속하는 방법
 
-### Supplemental Log 확인 및 설정
+1. EC2 Console로 이동([link](https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:instanceState=running))
+
+
+
+2. 접속하고자 하는 EC2 Instance 앞의 CheckBox를 선택하고, 화면 상단 중앙에 `Connect` Click
+
+![image-20230223163729990](images/image-20230223163729990.png)
+
+
+
+3. `Session Manager` Tab에서 `Connect` Click
+
+![image-20230223163557863](images/image-20230223163557863.png)
+
+
+
+4. 다음의 Command를 수행하여 `oracle` user로 Switch 합니다.
 
 ```
-SELECT supplemental_log_data_min FROM v$database;
-ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
-ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+sudo su -
+su - oracle
+
+
+Ternimal Output Example>>>
+sh-4.2$ sudo su -
+[root@ip-20-0-134-49 ~]# su - oracle
+Last login: Mon Feb 20 05:13:20 UTC 2023
+[oracle@ip-20-0-134-49 ~]$
+
+```
+
+![image-20230223163843135](images/image-20230223163843135.png)
+
+
+
+---
+
+## Appendix-2 - Terminal에서 AWS Credential 설정 방법
+
+1. `Access AWS Account` Page에서 export로 시작하는 3 Line을 복사합니다. (Copied! 버튼을 누르면 자동으로 복사 됩니다.)
+
+![image-20230223164446837](images/image-20230223164446837.png)
+
+2. Terminal에 붙여 넣기 합니다. `aws sts get-caller-identity`를 실행하여 환경 설정이 잘 되었는지 확인합니다.
+
+```
+[oracle@ip-20-0-134-49 ~]$ export AWS_ACCESS_KEY_ID="ASIAU243AFXXXXXXXXXXXXX"
+[oracle@ip-20-0-134-49 ~]$ export AWS_SECRET_ACCESS_KEY="KnXEs36z8TP/XXXXXXXXXXXXXXXXXXXXXXX"
+[oracle@ip-20-0-134-49 ~]$ export AWS_SESSION_TOKEN="IQoJb3JpZ2luX2VjEFAaCXVzLWVhc3QtMSJIMEYCIQC19ohX//mObRwyrj8XxhzTJLr6CfYYhbpcC0YPQW/YFgIhAM7YpRTC6otkGjVlTpp7uReg7lFc5CcS9X7XqOk8V7efKqICCOj//////////wEQARoMMzMyNjQ4MTYzNjgyIgzMp59+11pLU5520LIq9gFhstv2YQqAEaQNbqESVdgDwhwI2gbvzMqs+hBbmkqdJSKYw1aHhYohfa5kBBfY/b+Dt4LpjfN6MSptdbayy46HVR1fvxhmhDjQ8dsHiniqcQCKQcP4Yhi2dx3SYlHMSOnqQZ0ikb7jIBgzgwiFthKEd5hnWyISHztT1JrC8iudis7bpxJHquvPxPqdRxn5qmil0uhh6mIUe2whbidv4RPY60+oHtEEXSxqT62NCt2UxtpT74G5ih8+6OLuWf8ZNEmltX+wa9ZxyTtRtbRoHWIqrSQtA1VPm4WHqTBDEgqA2bmAbN5ro8DR2Yregm2lPfMOyJ5j684wo6HcnwY6nAHmaNKErMt3YPWK0CWlgf8Iuwla/M/yjiTRQGtfI8Qow1v8mjTQKRa9M7ei49eAKP1+ja1YNEzicS+IhDgv0CnD1HgekoaEiKMHOBWftI1U1ys4nVvEzfiWCYERizWjnVnMCjV/kAIzVg9SmqJ5Jac6BdLzlbJFZ7j4df7WwlJjYcPFQHOKLfBRD3ziOBzJvXEGgDt2MTcxiiPiahs="
+[oracle@ip-20-0-134-49 ~]$
+
+[oracle@ip-20-0-134-49 ~]$ aws sts get-caller-identity
+{
+    "UserId": "AROAU243AFFRB5BAEW7GD:Participant",
+    "Account": "332648XXXXXXX",
+    "Arn": "arn:aws:sts::332648XXXXXXX:assumed-role/WSParticipantRole/Participant"
+}
+```
+
+
+
+
+
+## Source Database 사전 작업
+
+#### 1. Appendix-1을 참고하여 `OnPremDB` Terminal로 접속 후 oracle user로 Switch 합니다.
+
+---
+
+#### 2. OnPremDB-DEV에 sqlplus로 접속합니다.
+
+```
+[oracle@ip-20-0-134-49 ~]$ sqlplus / as sysdba
+...
+SQL>
+```
+
+---
+
+#### 3. archivelog mode 설정 여부를 확인합니다.
+
+```
+SQL> archive log list;
+Database log mode              Archive Mode
+Automatic archival             Enabled
+Archive destination            /opt/oracle/arch
+Oldest online log sequence     264
+Next log sequence to archive   266
+Current log sequence           266
+```
+
+----
+
+#### 4. Supplental Log 설정 확인 및 설정이 되어 있지 않으면 설정합니다.
+
+```
+SQL> SELECT supplemental_log_data_min FROM v$database;
+SUPPLEME
+--------
+NO
+
+SQL> ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
+Database altered.
+
+SQL> ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+Database altered.
 
 SQL> SELECT supplemental_log_data_min FROM v$database;
-
 SUPPLEME
 --------
 YES
 ```
 
+---
 
-
-#### DMS User 생성 및 권한 grant
-
-```
-create user dms identified by dms;
-grant connect, resource to dms;
+#### 5. DMS에서 사용할 DMS User를 생성하고 기본 권한들을 줍니다.
 
 ```
+SQL> create user dms identified by dms;
+User created.
 
+SQL> grant connect, resource to dms;
+Grant succeeded.
+```
 
+---
 
-#### grant.sql
+#### 6. DMS User에게 필요한 적절한 권한을 줍니다. 미리 만들어 둔 dms-user-grant.sql을 다운로드 하고 그 내용을 확인합니다.
 
 ```
-GRANT CREATE SESSION TO dms;
-GRANT SELECT ANY TRANSACTION TO dms;
+SQL> !wget https://shared-kiwony.s3.ap-northeast-2.amazonaws.com/dms-user-grant.sql
+...
+2023-02-23 07:57:40 (100 MB/s) - ‘dms-user-grant.sql’ saved [1701/1701]
+
+SQL> !cat dms-user-grant.sql
+GRANT CREATE SESSION TO dms;GRANT SELECT ANY TRANSACTION TO dms;
 GRANT SELECT ON V_$ARCHIVED_LOG TO dms;
-GRANT SELECT ON V_$LOG TO dms;
-GRANT SELECT ON V_$LOGFILE TO dms;
-GRANT SELECT ON V_$LOGMNR_LOGS TO dms;
-GRANT SELECT ON V_$LOGMNR_CONTENTS TO dms;
-GRANT SELECT ON V_$DATABASE TO dms;
-GRANT SELECT ON V_$THREAD TO dms;
-GRANT SELECT ON V_$PARAMETER TO dms;
-GRANT SELECT ON V_$NLS_PARAMETERS TO dms;
-GRANT SELECT ON V_$TIMEZONE_NAMES TO dms;
-GRANT SELECT ON V_$TRANSACTION TO dms;
-GRANT SELECT ON V_$CONTAINERS TO dms;
-GRANT SELECT ON ALL_INDEXES TO dms;
-GRANT SELECT ON ALL_OBJECTS TO dms;
-GRANT SELECT ON ALL_TABLES TO dms;
-GRANT SELECT ON ALL_USERS TO dms;
-GRANT SELECT ON ALL_CATALOG TO dms;
-GRANT SELECT ON ALL_CONSTRAINTS TO dms;
-GRANT SELECT ON ALL_CONS_COLUMNS TO dms;
-GRANT SELECT ON ALL_TAB_COLS TO dms;
-GRANT SELECT ON ALL_IND_COLUMNS TO dms;
-GRANT SELECT ON ALL_ENCRYPTED_COLUMNS TO dms;
-GRANT SELECT ON ALL_LOG_GROUPS TO dms;
-GRANT SELECT ON ALL_TAB_PARTITIONS TO dms;
-GRANT SELECT ON SYS.DBA_REGISTRY TO dms;
-GRANT SELECT ON SYS.OBJ$ TO dms;
-GRANT SELECT ON DBA_TABLESPACES TO dms;
-GRANT SELECT ON DBA_OBJECTS TO dms;
-GRANT SELECT ON SYS.ENC$ TO dms;
-GRANT EXECUTE on DBMS_LOGMNR to dms;
-GRANT EXECUTE ON SYS.DBMS_CRYPTO TO dms;
-GRANT SELECT on V_$LOGMNR_LOGS to dms;
-GRANT SELECT on V_$LOGMNR_CONTENTS to dms;
-GRANT SELECT on V_$containers to dms;
-GRANT SELECT ON SYS.DBA_DIRECTORIES TO dms;
-GRANT SELECT on ALL_VIEWS to dms;
-GRANT SELECT ANY TABLE to dms;
-GRANT ALTER ANY TABLE to dms;
-GRANT create any directory to dms;
-GRANT LOGMINING to dms;
+...
 GRANT SELECT on v_$transportable_platform to dms;
-GRANT EXECUTE on DBMS_FILE_TRANSFER to dms;  
-GRANT EXECUTE on DBMS_FILE_GROUP to dms;
-```
-
-```
-SQL> !cat grant.sql
-GRANT CREATE SESSION TO dms;
-GRANT SELECT ANY TRANSACTION TO dms;
-GRANT SELECT ON V_$ARCHIVED_LOG TO dms;
-GRANT SELECT ON V_$LOG TO dms;
-GRANT SELECT ON V_$LOGFILE TO dms;
-GRANT SELECT ON V_$LOGMNR_LOGS TO dms;
-GRANT SELECT ON V_$LOGMNR_CONTENTS TO dms;
-GRANT SELECT ON V_$DATABASE TO dms;
-GRANT SELECT ON V_$THREAD TO dms;
-GRANT SELECT ON V_$PARAMETER TO dms;
-GRANT SELECT ON V_$NLS_PARAMETERS TO dms;
-GRANT SELECT ON V_$TIMEZONE_NAMES TO dms;
-GRANT SELECT ON V_$TRANSACTION TO dms;
-GRANT SELECT ON V_$CONTAINERS TO dms;
-GRANT SELECT ON ALL_INDEXES TO dms;
-GRANT SELECT ON ALL_OBJECTS TO dms;
-GRANT SELECT ON ALL_TABLES TO dms;
-GRANT SELECT ON ALL_USERS TO dms;
-GRANT SELECT ON ALL_CATALOG TO dms;
-GRANT SELECT ON ALL_CONSTRAINTS TO dms;
-GRANT SELECT ON ALL_CONS_COLUMNS TO dms;
-GRANT SELECT ON ALL_TAB_COLS TO dms;
-GRANT SELECT ON ALL_IND_COLUMNS TO dms;
-GRANT SELECT ON ALL_ENCRYPTED_COLUMNS TO dms;
-GRANT SELECT ON ALL_LOG_GROUPS TO dms;
-GRANT SELECT ON ALL_TAB_PARTITIONS TO dms;
-GRANT SELECT ON SYS.DBA_REGISTRY TO dms;
-GRANT SELECT ON SYS.OBJ$ TO dms;
-GRANT SELECT ON DBA_TABLESPACES TO dms;
-GRANT SELECT ON DBA_OBJECTS TO dms;
-GRANT SELECT ON SYS.ENC$ TO dms;
-GRANT EXECUTE on DBMS_LOGMNR to dms;
-GRANT EXECUTE ON SYS.DBMS_CRYPTO TO dms;
-GRANT SELECT on V_$LOGMNR_LOGS to dms;
-GRANT SELECT on V_$LOGMNR_CONTENTS to dms;
-GRANT SELECT on V_$containers to dms;
-GRANT SELECT ON SYS.DBA_DIRECTORIES TO dms;
-GRANT SELECT on ALL_VIEWS to dms;
-GRANT SELECT ANY TABLE to dms;
-GRANT ALTER ANY TABLE to dms;
-GRANT create any directory to dms;
-GRANT LOGMINING to dms;
-GRANT SELECT on v_$transportable_platform to dms;
-GRANT EXECUTE on DBMS_FILE_TRANSFER to dms;  
+GRANT EXECUTE on DBMS_FILE_TRANSFER to dms;
 GRANT EXECUTE on DBMS_FILE_GROUP to dms;
 
-
-SQL> @grant.sql
-Grant succeeded.
-...
-...
-Grant succeeded.
+SQL>
 ```
 
+---
 
-
-
-
-#### DMS User에게 Migration 대상 Schema를 읽을 수 있는 권한 할당(CMD로 나온 Command들을 SQLPLUS에서 실행)
+#### 7. 다운로드 받은 dms-user-grant.sql을 사용하여 권한을 grant 합니다.
 
 ```
- 
-select 'GRANT SELECT on '||owner||'.'||table_name||' to dms;' as CMD from dba_tables where owner='SOE';
-
-SQL> select 'GRANT SELECT on '||owner||'.'||table_name||' to dms;' as CMD from dba_tables where owner='SOE';
-
-CMD
---------------------------------------------------------------------------------
-GRANT SELECT on SOE.CUSTOMERS to dms;
-GRANT SELECT on SOE.ADDRESSES to dms;
-GRANT SELECT on SOE.CARD_DETAILS to dms;
-GRANT SELECT on SOE.WAREHOUSES to dms;
-GRANT SELECT on SOE.ORDER_ITEMS to dms;
-GRANT SELECT on SOE.ORDERS to dms;
-GRANT SELECT on SOE.INVENTORIES to dms;
-GRANT SELECT on SOE.PRODUCT_INFORMATION to dms;
-GRANT SELECT on SOE.LOGON to dms;
-GRANT SELECT on SOE.PRODUCT_DESCRIPTIONS to dms;
-GRANT SELECT on SOE.ORDERENTRY_METADATA to dms;
-
-11 rows selected.
-```
-
-```
-SQL> !cat grant2.sql
-GRANT SELECT on SOE.CUSTOMERS to dms;
-GRANT SELECT on SOE.ADDRESSES to dms;
-GRANT SELECT on SOE.CARD_DETAILS to dms;
-GRANT SELECT on SOE.WAREHOUSES to dms;
-GRANT SELECT on SOE.ORDER_ITEMS to dms;
-GRANT SELECT on SOE.ORDERS to dms;
-GRANT SELECT on SOE.INVENTORIES to dms;
-GRANT SELECT on SOE.PRODUCT_INFORMATION to dms;
-GRANT SELECT on SOE.LOGON to dms;
-GRANT SELECT on SOE.PRODUCT_DESCRIPTIONS to dms;
-GRANT SELECT on SOE.ORDERENTRY_METADATA to dms;
-
-SQL> !vi grant2.sql
-
-SQL> @grant2
+SQL> @dms-user-grant.sql
 
 Grant succeeded.
-...
+Grant succeeded.
 ...
 Grant succeeded.
+Grant succeeded.
+
+SQL>
 ```
 
+---
 
-
-#### Supplemental Logging on Table
+#### 8. 이관 대상이 되는 Table 중에 CDC를 통해 변경분 적용이 필요한 Table들을 PK-Supplemental Log 설정해야합니다. 미리 만들어둔 Script를 Download하고 내용을 확인합니다.
 
 ```
-select 'ALTER TABLE '||owner||'.'||table_name||' ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;' as CMD from dba_tables where owner='SOE';
+SQL> !wget https://shared-kiwony.s3.ap-northeast-2.amazonaws.com/dms-soe-supplemental.sql
+...
+2023-02-23 08:07:59 (38.4 MB/s) - ‘dms-soe-supplemental.sql’ saved [857/857]
 
-SQL> select 'ALTER TABLE '||owner||'.'||table_name||' ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;' as CMD from dba_tables where owner='SOE';
-
-CMD
------------------------------------------------------------------------------------------------------
+SQL> !cat dms-soe-supplemental.sql
 ALTER TABLE SOE.CUSTOMERS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
 ALTER TABLE SOE.ADDRESSES ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
 ALTER TABLE SOE.CARD_DETAILS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
@@ -210,54 +185,67 @@ ALTER TABLE SOE.LOGON ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
 ALTER TABLE SOE.PRODUCT_DESCRIPTIONS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
 ALTER TABLE SOE.ORDERENTRY_METADATA ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
 
-11 rows selected.
-
+SQL>
 ```
 
+---
+
+#### 9. 다운로드 받은 dms-soe-supplemental.sql을 실행하여 supplemental log를 설정합니다.
+
 ```
-SQL> !cat supplemental.sql
-ALTER TABLE SOE.CUSTOMERS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.ADDRESSES ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.CARD_DETAILS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.WAREHOUSES ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.ORDER_ITEMS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.ORDERS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.INVENTORIES ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.PRODUCT_INFORMATION ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.LOGON ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.PRODUCT_DESCRIPTIONS ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-ALTER TABLE SOE.ORDERENTRY_METADATA ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-
-SQL> @supplemental.sql
-
+SQL> @dms-soe-supplemental.sql
+SQL>
 Table altered.
 ...
-...
+SQL>
 Table altered.
 
+SQL>
 ```
 
-
+---
 
 
 
 # Target Database SOE Schema 생성
 
-1. EC2 Console로 이동합니다.  ([link](https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:))
+1. Appendix-1을 참고하여 EC2명이 `db-xxxxxxx`로 시작하는 EC2의 Terminal로 접속 후 oracle user로 Switch 합니다. 
+2. `sqlplus` 를 사용하여 `RDS Custom for Oracle` Instance에 접속 합니다.
 
-2. OnPremDB  앞의 CheckBox를 선택 후 화면 중앙 상단의 `Connect`를 Click
+```
+[ssm-user@ip-20-0-133-93 bin]$ sudo su -
+Last login: Tue Feb 21 02:54:30 UTC 2023 on pts/0
+[root@ip-20-0-133-93 ~]# su - oracle
+Last login: Tue Feb 21 02:54:31 UTC 2023 on pts/0
+-bash-4.2$ sqlplus / as sysdba
+...
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
 
-3. Connect to instance에서 `Connect` Click
+SQL>
+
+```
 
 
+
+3. 다음의 명령어를 실행하여 `RDS Custom for Oracle` Instance에 `SOE` Shcema를 생성하고 필요한 권한을 줍니다.
+
+```
+SQL> create user soe identified by soe default tablespace users temporary tablespace temp quota unlimited on users;
+User created.
+
+SQL> grant connect,resource to soe;
+Grant succeeded.
+
+SQL>
+```
 
 ---
 
-## DMS를 활용한 DB Migration
+# DMS를 활용하여 OnPremDB의 Data를 RDS Custom for Oracle로 이관
 
----
-
-### Replication Instance 생성 
+#### 1. Replication Instance 생성
 
 1. DMS Console로 이동([link](https://ap-northeast-2.console.aws.amazon.com/dms/v2/home?region=ap-northeast-2#replicationInstances))
 
@@ -267,7 +255,9 @@ Table altered.
 
 
 
-3. 다음처럼 정보를 입력 후 `Create replication instance` Click(dms-vpc-role is not configured properly 에러 발생 시 10초 있다가 다시 생성 버튼을 Click)
+3. 다음처럼 정보를 입력 후 `Create replication instance` Click
+
+   !! Event Engine 사용시 아래처럼 **dms-vpc-role is not configured properly** 에러가 날 수 있습니다. 이럴 경우 10초 정도 기다렸다가 다시 `Create repliation instance` Click 하면 해결 됩니다.
 
 ```
 Name : RI-OnPrem-To-RDS-Custom
@@ -315,7 +305,7 @@ Endpoint Identifier : Source-Oracle-SOE
 Source Engine : Oracle
 Access to endpoint database : Provide access information manually
 
-Server Name : 20.0.143.74
+Server Name : EC2의 OnPremDB의 Private IP Address를 입력
 Port : 1521
 Username : dms
 Password : dms
@@ -326,7 +316,7 @@ SID/Service name : ONPREMDB
 
 
 
-7. source-oracle-soe를 선택 후 `Actions`=> `Test Connection` Click
+7. 생성된 Endpoint : source-oracle-soe 앞의 CheckBox를 체크 후 `Actions`=> `Test Connection` Click
 8. `Run Test` Click 후 `status`가 `successful`인지 확인 ' 후 `Back` Click
 
 ![image-20230218143705465](images/image-20230218143705465.png)
@@ -343,10 +333,10 @@ Endpoint identifier : target-rds-custom-oracle
 Target Engine : Oracle
 
 Access to endpoint database : Provide access information manually
-Server name : rds-custom-dev.cwx7dmluiekk.ap-northeast-2.rds.amazonaws.com
+Server name : EC2의 RDS Custom For Oracle EC2 인스턴스의 Private IP Address를 입력 또는 RDS Endpoint 입력
 Port : 1521
 User name : admin
-Password : 
+Password : <Secrets Manager> :: rds-custom-key에서 "Retreive secret value"로 확인한 비밀번호 입력
 SID/Service Name : DEV
 ```
 
@@ -441,3 +431,126 @@ Editing mode : JSON Editor
 
 
 
+---
+
+
+
+# Target RDS Custom For Oracle Data 확인
+
+1. Appendix-1을 참고하여 EC2명이 `db-xxxxxxx`로 시작하는 EC2의 Terminal로 접속 후 oracle user로 Switch 합니다. 
+
+2. `sqlplus / as sysdba` 를 사용하여 `RDS Custom for Oracle` Instance에 접속 합니다.
+
+```
+ssm-user@ip-20-0-133-93 bin]$ sudo su -
+Last login: Thu Feb 23 08:13:50 UTC 2023 on pts/0
+[root@ip-20-0-133-93 ~]# su - oracle
+Last login: Thu Feb 23 08:13:51 UTC 2023 on pts/0
+-bash-4.2$ sqlplus / as sysdba
+...
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL>
+
+```
+
+3. 다음의 query로 데이터가 제대로 이관되고 있는지 확인합니다.
+
+```
+SQL> select count(*) from soe.customers;
+
+  COUNT(*)
+----------
+   8265515
+```
+
+---
+
+
+
+### DMS를 활용해서  RDS Custom for Oracle로 Data Migration을 완료하셨습니다.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://332648163682.signin.aws.amazon.com/console
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### DMS User에게 Migration 대상 Schema를 읽을 수 있는 권한 할당(CMD로 나온 Command들을 SQLPLUS에서 실행)
+
+```
+ 
+select 'GRANT SELECT on '||owner||'.'||table_name||' to dms;' as CMD from dba_tables where owner='SOE';
+
+SQL> select 'GRANT SELECT on '||owner||'.'||table_name||' to dms;' as CMD from dba_tables where owner='SOE';
+
+CMD
+--------------------------------------------------------------------------------
+GRANT SELECT on SOE.CUSTOMERS to dms;
+GRANT SELECT on SOE.ADDRESSES to dms;
+GRANT SELECT on SOE.CARD_DETAILS to dms;
+GRANT SELECT on SOE.WAREHOUSES to dms;
+GRANT SELECT on SOE.ORDER_ITEMS to dms;
+GRANT SELECT on SOE.ORDERS to dms;
+GRANT SELECT on SOE.INVENTORIES to dms;
+GRANT SELECT on SOE.PRODUCT_INFORMATION to dms;
+GRANT SELECT on SOE.LOGON to dms;
+GRANT SELECT on SOE.PRODUCT_DESCRIPTIONS to dms;
+GRANT SELECT on SOE.ORDERENTRY_METADATA to dms;
+
+11 rows selected.
+```
+
+```
+SQL> !cat grant2.sql
+GRANT SELECT on SOE.CUSTOMERS to dms;
+GRANT SELECT on SOE.ADDRESSES to dms;
+GRANT SELECT on SOE.CARD_DETAILS to dms;
+GRANT SELECT on SOE.WAREHOUSES to dms;
+GRANT SELECT on SOE.ORDER_ITEMS to dms;
+GRANT SELECT on SOE.ORDERS to dms;
+GRANT SELECT on SOE.INVENTORIES to dms;
+GRANT SELECT on SOE.PRODUCT_INFORMATION to dms;
+GRANT SELECT on SOE.LOGON to dms;
+GRANT SELECT on SOE.PRODUCT_DESCRIPTIONS to dms;
+GRANT SELECT on SOE.ORDERENTRY_METADATA to dms;
+
+SQL> !vi grant2.sql
+
+SQL> @grant2
+
+Grant succeeded.
+...
+...
+Grant succeeded.
+```
+
+
+
+#### 
