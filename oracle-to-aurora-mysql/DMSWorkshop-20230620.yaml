@@ -37,7 +37,7 @@ Metadata:
 Mappings:
   RegionMap: # 20 Regions
     us-east-1: # Virginia
-      "EC2AMI" : "ami-08a4fc30a55545372"  # Updated  snapshot June 10, 2022 ec2 from Feb 2020
+      "EC2AMI" : "ami-06ffdb949ab180b00"  # Updated  snapshot June 10, 2022 ec2 from Feb 2020
       "OracleSnapshotId" : "arn:aws:rds:us-east-1:833997227572:snapshot:dms-lab-oracle-source-sept2022-us-east-1"
     us-east-2: # Ohio
       "EC2AMI" : "ami-083d84d1b53340b9d" # Updated  snapshot June 10, 2022 ec2 from Feb 2020
@@ -64,7 +64,7 @@ Mappings:
       "EC2AMI" : "ami-01a60e6c41f658d2c" # Updated  snapshot June 10, 2022 ec2 from Feb 2020
       "OracleSnapshotId" : "arn:aws:rds:ap-southeast-1:833997227572:snapshot:dms-lab-oracle-source-sept2022-ap-southeast-1"
     ap-southeast-2: # Sydney
-      "EC2AMI" : "ami-0ed88efdc0a63aa05" # Updated  snapshot June 10, 2022 ec2 from Feb 2020
+      "EC2AMI" : "ami-08a02918239302e7c" # Updated  snapshot June 10, 2022 ec2 from Feb 2020
       "OracleSnapshotId" : "arn:aws:rds:ap-southeast-2:833997227572:snapshot:dms-lab-oracle-source-sept2022-ap-southeast-2"
     ap-northeast-1: # Tokyo
       "EC2AMI" : "ami-000c9e3c215cb94bb" # Updated  snapshot June 10, 2022 ec2 from Feb 2020
